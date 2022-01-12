@@ -118,17 +118,17 @@ params:
     list:
       - skill: Programa R
         skillrating: 90
-      - skill: Estatística
-        skillrating: 90
       - skill: Leitura
         skillrating: 100 
+      - skill: Estatística
+        skillrating: 90
     panelId: skill-panel
     title: Interesses
   social:
     list:
       - icon: fab fa-linkedin-in
         title: LinkedIn
-        url: '#'
+        url: 'https://www.linkedin.com/in/wesley-neves-750052206/'
       - icon: fab fa-stack-overflow
         title: StackOverflow
         url: '#'
