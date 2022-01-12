@@ -149,7 +149,7 @@ params:
         url: 'https://www.researchgate.net/profile/Wesley-Neves-2'
     title: Links
   theme:
-    mainTheme: ocean
+    mainTheme: light
     showAttribute: yes
     singlePage: no
   title: Aafu theme
