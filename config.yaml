@@ -100,7 +100,7 @@ params:
           ....
         type: ----
         url: '#'
-    title: ---
+    title: Publicações
     types:
       - Journal Articles
       - Proceedings
