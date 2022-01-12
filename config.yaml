@@ -1,6 +1,6 @@
-baseURL: https://weneves.netlify.app
+baseURL: https://https://weneves.netlify.app
 languageCode: en-us
-theme: weneves
+theme: aafu
 params:
   aboutme:
     description: Site dedicado à análise de dados estatísticos com ênfase em ecologia marinha utilizando a linguagem R
