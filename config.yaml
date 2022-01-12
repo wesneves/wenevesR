@@ -46,15 +46,15 @@ params:
   hobby:
     icon: fas fa-gamepad
     list:
-      - hobby: Cooking
-      - hobby: Hiking
-      - hobby: Baking
+      - hobby: Pray Kalimba
+      - hobby: Desenhar
+      - hobby: Ler
     title: Hobbies
   profile:
-    location: City Name, ST
-    name: First Last, Abbr.
+    location: Recife, PE
+    name: Wesley, Neves.
     photo: profile.jpg
-    tagline: Title
+    tagline: Há mais coisas entre o céu e a terra, Horácio, do que sonha a nossa vã filosofia. (Shakespeare, 1604, p.16)
   project:
     icon: fas fa-project-diagram
     list:
