@@ -15,13 +15,13 @@ params:
       - college: Universidade Federal de Pernambuco
         dates: 2021 - 2023
         degree: M.S. em Biologia Animal (PPGBA - UFPE)
-        Dissertação_title: 'Caracterização da Diversidade Funcional de Macrobentos e do Tipo e Estado de Cinco Prais do Litoral de Pernambuco.'
-        Dissertação_url: '#'
+        thesis_title: 'Caracterização da Diversidade Funcional de Macrobentos e do Tipo e Estado de Cinco Prais do Litoral de Pernambuco.'
+        thesis_url: '#'
       - college: Universidade Federal de Pernambuco
         dates: 2016 - 2021
         degree: B.S. em Ciências Biológicas/Ciências Ambientais
-        Monografia_title: 'Curvas de Acumulação de Diversidade Efetiva em Comunidades de Macrobentos da Praia de Tamandaré.'
-        Monografia_url: '#'
+        thesis_title: 'Curvas de Acumulação de Diversidade Efetiva em Comunidades de Macrobentos da Praia de Tamandaré.'
+        thesis_url: '#'
     title: Educação
   experience:
     icon: fas fa-briefcase
