@@ -29,10 +29,10 @@ params:
       - company: Pré-Vestibular InovAÇÃO
         dates: 2019 - *Present*
         details: Ministrei aulas nos diversos temas das Ciências da Natureza, requeridos para o Exame Nacional do Ensino Médio - ENEM.
-        position: Job Title
+        position: Professor de Biologia e Meio Ambiente
       - company: Curso de Curta Duração - Ecologia Prática_R.
         dates: 2020 - *Present*
-        position: Job Title
+        position: Professor Ecologia Prática
         url: '#'
     title: Experiências
   favicons:
