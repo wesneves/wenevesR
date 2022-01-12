@@ -116,14 +116,14 @@ params:
   skill:
     icon: fas fa-cogs
     list:
-      - skill: Skill 1, Skill 2
+      - skill: Programa R
         skillrating: 90
-      - skill: Skill 3
-        skillrating: 80
-      - skill: Skill 4
-        skillrating: 50
+      - skill: Estatística
+        skillrating: 90
+      - skill: Leitura
+        skillrating: 100 
     panelId: skill-panel
-    title: Skills
+    title: Interesses
   social:
     list:
       - icon: fab fa-linkedin-in
