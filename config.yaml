@@ -46,7 +46,7 @@ params:
   hobby:
     icon: fas fa-gamepad
     list:
-      - hobby: Pray Kalimba
+      - hobby: Kalimba
       - hobby: Desenhar
       - hobby: Ler
     title: Hobbies
