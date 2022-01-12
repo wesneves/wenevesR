@@ -7,7 +7,7 @@ params:
     icon: fas fa-user
     title: Sobre
   author: Wesley Neves
-  copyright: short copyright message
+  copyright: Green Vibes Only
   description: Website title
   education:
     icon: fas fa-graduation-cap
@@ -54,7 +54,7 @@ params:
     location: Recife, PE
     name: Wesley, Neves.
     photo: profile.jpg
-    tagline: Green Vibes Only
+    tagline: 
   project:
     icon: fas fa-project-diagram
     list:
