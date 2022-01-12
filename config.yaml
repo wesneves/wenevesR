@@ -79,28 +79,28 @@ params:
       - journal
     icon: fas fa-book
     list:
-      - authors: F Last, F Second, P secondary
-        date: '2018'
-        journal: Journal of Field 52 (16), 9033-9044
-        title: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
-        type: Journal Articles
+      - authors: Em Construção
+        date: '---'
+        journal: ...
+        title: ...
+          ....
+        type: ---
         url: '#'
-      - authors: F Last, F Second, P secondary
-        date: '2018'
-        journal: Journal of Field 52 (16), 9033-9044
-        title: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
-        type: Journal Articles
+      - authors: Em Construção
+        date: '---'
+        journal: ...
+        title: ...
+          ....
+        type: ---
         url: '#'
-      - authors: F Last, F Second, P secondary
-        date: '2018'
-        journal: Journal of Field 52 (16), 9033-9044
-        title: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
-        type: Proceedings
+      - authors: Em Construção
+        date: '---'
+        journal: ...
+        title: ...
+          ....
+        type: ----
         url: '#'
-    title: Publications
+    title: ---
     types:
       - Journal Articles
       - Proceedings
