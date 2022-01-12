@@ -22,20 +22,19 @@ params:
         degree: B.S. em Ciências Biológicas/Ciências Ambientais
         thesis_title: 'Curvas de Acumulação de Diversidade Efetiva em Comunidades de Macrobentos da Praia de Tamandaré.'
         thesis_url: '#'
-    title: Educação
+    title: Formação
   experience:
     icon: fas fa-briefcase
     list:
-      - company: Company Name
+      - company: Pré-Vestibular InovAÇÃO
         dates: 2019 - *Present*
-        details: Printed from desktop. Sent [emails](#). Called people using telephone.
-          Drank water from office cooler. Ate donuts on people's birthdays.
+        details: Ministrei aulas nos diversos temas das Ciências da Natureza, requeridos para o Exame Nacional do Ensino Médio - ENEM.
         position: Job Title
-      - company: Company Name
-        dates: 2018 - 2019
+      - company: Curso de Curta Duração - Ecologia Prática_R.
+        dates: 2020 - *Present*
         position: Job Title
         url: '#'
-    title: Experiences
+    title: Experiências
   favicons:
     metas: "        <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"apple-touch-icon.png\">\n
       \       <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"favicon-32x32.png\">\n
