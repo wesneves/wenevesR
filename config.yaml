@@ -5,8 +5,8 @@ params:
   aboutme:
     description: Site dedicado à análise de dados estatísticos com ênfase em ecologia marinha utilizando a linguagem R.
     icon: fas fa-user
-    title: About Me
-  author: Darshan Baral
+    title: Sobre
+  author: Wesley Neves
   copyright: short copyright message
   description: Website title
   education:
