@@ -8,7 +8,6 @@ output:
     toc_float: 
       collapsed: false
       smooth_scroll: true
-bibliography: references.bib
 ---
 
 ```{js, echo=FALSE}
@@ -103,7 +102,7 @@ Para abrir o R no terminal é só digitar o R maiúsculo e apertar Enter. \]
 
 Para instalar o RStudio é só acessar o link do [RStudio](https://rstudio.com/) ir na opção downloads e escolher a versão Ubuntu18/Debian 10, após baixado é só instalar normalmente como faria no Windows apertando o botão Instalar Pacotes.
 
-![](images/RStudio.png "Interface do RStudio")
+![](Modulo1_files/RStudio.png "Interface RStudio")
 
 # Entendendo o Funcionamento do R:
 
@@ -119,7 +118,7 @@ Podemos sumarizar esse conceito em três princípios, sendo eles:
 
 Podemos resumir o funcionamento do programa na seguinte situação: Toda ação que acontece nesse programa é realizado através de uma **chama de função** o resultado dessa chama de função é *armazenada* na forma de um **objeto** que por fim é associado a um nome.
 
-![](images/Fun%C3%A7%C3%B5es-01.png)
+![](Modulo1_files/Fun%C3%A7%C3%B5es-01.png)
 
 # Iniciando o R/RStudio:
 
@@ -687,7 +686,7 @@ OU
 
 `labs(title = 'Relação entre o Comprimento e Largura da pétala de três spp da flor Iris')`
 
-![](images/grafico "Resultado")\
+![](Modulo1_files/grafico)\
 
 ### Mapeamento Estético
 
@@ -727,7 +726,7 @@ Densidade: geom_density()
 
 Gráfico de linhas: geom_line()
 
-![](images/1.png)
+![](Modulo1_files/1.png)
 
 # Funções
 

@@ -8,7 +8,6 @@ output:
     toc_float: 
       collapsed: false
       smooth_scroll: true
-bibliography: references.bib
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -35,7 +34,7 @@ $('.title').css('color', 'green')
 <p>A comunicação entre Homem e Máquina é mediado pelo uso da linguagem de programação, esta por sua vez pode ser classificada como linguagem de alto nível e linguagem de baixo nível, esta classificação está baseada no nível de abstração de cada linguagem de programação.</p>
 <div id="linguagem-de-alto-nível" class="section level2">
 <h2>Linguagem de Alto Nível</h2>
-<p>São linguagens cuja sintaxe são voltadas para o entendimento humano, logo, tais linguagens são mais intuitivas/amigáveis. Para que exista um canal de comunicação entre o emissor (homem) e o receptor (máquina) é necessário que o código seja abstraído e sintetizado de modo que ambos entendam, já que o computador só compreende a linguagem binária. Tomamos como exemplo o Código “PRINT,” o emissor que no caso somos nós, estabelecemos esse comando que será abstraído/ convertido em zeros e uns através dos compiladores para a máquina e ela por sua vez retornará funções que mostrem o conteúdo capturado na tela do computador. São exemplos desse tipo de linguagem o JavaScript, Python, C#, PHP etc.</p>
+<p>São linguagens cuja sintaxe são voltadas para o entendimento humano, logo, tais linguagens são mais intuitivas/amigáveis. Para que exista um canal de comunicação entre o emissor (homem) e o receptor (máquina) é necessário que o código seja abstraído e sintetizado de modo que ambos entendam, já que o computador só compreende a linguagem binária. Tomamos como exemplo o Código “PRINT”, o emissor que no caso somos nós, estabelecemos esse comando que será abstraído/ convertido em zeros e uns através dos compiladores para a máquina e ela por sua vez retornará funções que mostrem o conteúdo capturado na tela do computador. São exemplos desse tipo de linguagem o JavaScript, Python, C#, PHP etc.</p>
 <p>É intuitivo pensar que os códigos escritos precisam ser compilados ou interpretados para que a máquina entenda o que queremos transmitir. Quando um código é compilado, é gerado outro arquivo que contém todo o código traduzido para algo mais próximo da linguagem da máquina (no caso é um programa em Assembly). Já quando o código é interpretado, cada linha de comando é “traduzida” no momento da execução e é aqui que o Programa R se encaixa. É justamente isso que eleva o tempo de processamento.<br />
 </p>
 </div>
@@ -55,7 +54,7 @@ print(x.split(&#39; &#39;))</code></pre>
 <p>lea si, string<br />
 call printf<br />
 hlt<br />
-string db “Oi Wesley!” 0<br />
+string db “Oi Wesley!”, 0<br />
 printf PROC<br />
 mov AL, SI<br />
 cmp AL, 0<br />
@@ -95,11 +94,11 @@ printf ENDP</p>
 </div>
 <div id="instalando-o-r-e-o-rstudio-no-linux-mint" class="section level2">
 <h2>Instalando o R e o RStudio no Linux Mint</h2>
-<p>Essa etapa é um pouco mais complicada, no primeiro passo iremos acessar o site oficial do <a href="https://cran.r-project.org/">R</a> em seguida escolhemos a opção <em>“Download R for Linux”</em>, depois selecionamos a opção <em>“ubuntu/”</em> e copiamos a chave do repositório para isso clicamos na opção “full README,” logo iremos copiar o apt-key, no nosso caso copiaremos a chave <strong>“E298A3A825C0D65DFD57CBB651716619E084DAB9”</strong>, com a chave copiada é só acessar no meno iniciar o aplicativo <em>“Fontes de Aplicativos”</em>, em seguida basta clicar na <strong>Chaves de Autenticação</strong> e apertar em baixar, dai é só colar a chave copiada e apertar em OK, após isso aceite a atualização do repositório. Precisamos adicionar o repositório Para isso iremos acessar novamente a página do R e vamos copiar o comando<br />
-“deb <a href="https://cloud.r-project.org/bin/linux/ubuntu" class="uri">https://cloud.r-project.org/bin/linux/ubuntu</a> focal-cran40/,” em seguida Adicionaremos esse repositório no aplicativo <strong>Fontes de Aplicativos</strong> e em Adicionar apertaremos em OK, logo adicionaremos o seguinte comando: <em>“sudo apt-get install r-base r-base-dev”</em> no terminal (Ctrl + Alt + T) e confirmamos a instalação digitando S e apertando Enter.</p>
+<p>Essa etapa é um pouco mais complicada, no primeiro passo iremos acessar o site oficial do <a href="https://cran.r-project.org/">R</a> em seguida escolhemos a opção <em>“Download R for Linux”</em>, depois selecionamos a opção <em>“ubuntu/”</em> e copiamos a chave do repositório para isso clicamos na opção “full README”, logo iremos copiar o apt-key, no nosso caso copiaremos a chave <strong>“E298A3A825C0D65DFD57CBB651716619E084DAB9”</strong>, com a chave copiada é só acessar no meno iniciar o aplicativo <em>“Fontes de Aplicativos”</em>, em seguida basta clicar na <strong>Chaves de Autenticação</strong> e apertar em baixar, dai é só colar a chave copiada e apertar em OK, após isso aceite a atualização do repositório. Precisamos adicionar o repositório Para isso iremos acessar novamente a página do R e vamos copiar o comando<br />
+“deb <a href="https://cloud.r-project.org/bin/linux/ubuntu" class="uri">https://cloud.r-project.org/bin/linux/ubuntu</a> focal-cran40/”, em seguida Adicionaremos esse repositório no aplicativo <strong>Fontes de Aplicativos</strong> e em Adicionar apertaremos em OK, logo adicionaremos o seguinte comando: <em>“sudo apt-get install r-base r-base-dev”</em> no terminal (Ctrl + Alt + T) e confirmamos a instalação digitando S e apertando Enter.</p>
 <p>Para abrir o R no terminal é só digitar o R maiúsculo e apertar Enter. ]</p>
 <p>Para instalar o RStudio é só acessar o link do <a href="https://rstudio.com/">RStudio</a> ir na opção downloads e escolher a versão Ubuntu18/Debian 10, após baixado é só instalar normalmente como faria no Windows apertando o botão Instalar Pacotes.</p>
-<p><img src="images/RStudio.png" title="Interface do RStudio" /></p>
+<p><img src="/rmarkdown-libs/RStudio.png" title="Interface RStudio" /></p>
 </div>
 </div>
 <div id="entendendo-o-funcionamento-do-r" class="section level1">
@@ -112,7 +111,7 @@ printf ENDP</p>
 <li><p><strong>Princípio da Interface:</strong> Interfaces para outros programas são parte do R.</p></li>
 </ul>
 <p>Podemos resumir o funcionamento do programa na seguinte situação: Toda ação que acontece nesse programa é realizado através de uma <strong>chama de função</strong> o resultado dessa chama de função é <em>armazenada</em> na forma de um <strong>objeto</strong> que por fim é associado a um nome.</p>
-<p><img src="images/Fun%C3%A7%C3%B5es-01.png" /></p>
+<p><img src="/rmarkdown-libs/Fun%C3%A7%C3%B5es-01.png" /></p>
 </div>
 <div id="iniciando-o-rrstudio" class="section level1">
 <h1>Iniciando o R/RStudio:</h1>
@@ -135,7 +134,7 @@ printf ENDP</p>
 <h2>Diretório de Trabalho</h2>
 <p>Basicamente um dos principais erros que acontece em uma rotina de programação R é acessar algum arquivo que não está no diretório de trabalho ou até mesmo salvar em um diretório sem ao menos prestar atenção onde o programa está salvando/acessando os arquivos. Esse lugar é conhecido como diretório de trabalho e o R estabelece uma conexão com esse lugar toda vez que o programa é iniciado. Para verificar seu diretório de trabalho, utilize o comando:</p>
 <pre class="r"><code>getwd()</code></pre>
-<pre><code>## [1] &quot;/home/weneves/Documentos/site/wenevesR/content/blog&quot;</code></pre>
+<pre><code>## [1] &quot;/home/weneves/Documentos/site/wenevesR/content/blog/Modulo1&quot;</code></pre>
 <p>Para alterar o diretório de trabalho existe a função <code>setwd()</code><br />
 No RStudio basta acessarmos <em>Tools/Global Options/General/Default Working Directory (when not in a project)</em>:</p>
 <p><code>setwd("/home/weneves/Documentos/Trabalhos R")</code></p>
@@ -171,7 +170,7 @@ No RStudio basta acessarmos <em>Tools/Global Options/General/Default Working Dir
 <p>Lembrando do primeiro princípio do R <em>Tudo que existe no R é um Objeto</em>, e o que seria esse tal de objeto?</p>
 <p>A ciência da computação define um objeto como um local da memória destinado a um determinado valor, dessa forma, o objeto pode ser uma variável, uma função ou simplesmente uma estrutura de dados. Mas na Programação Orientada a Objetos, a palavra se refere a um Molde/Classe que passa a existir a partir de uma instância da classe, ou seja, a classe define o comportamento do objeto (utilizando para tais, seus atributos que nada mais são que propriedades e suas ações que são seus métodos). Dessa maneira, podemos resumir a definição de objeto como uma entidade no ambiente R que possuí características internas e tas características são extremamente necessárias para que o programa possa interpretar sua estrutura e seu conteúdo, como vimos acima, tais características são chamadas de atributos.</p>
 <p>Podemos retornar ao enunciado que comumente proferimos ao utilizar o R <em>“Criei um objeto x que recebe um valor y”</em>. Segundo a lógica de funcionamento do R, tal afirmação é bastante imprecisa e o correto seria afirmar que o objeto y recebe um nome ou mais corretamente “está se ligando” ao nome x, ou seja, o objeto não tem um nome, mas o nome possui um objeto. Para visualizar qual objeto associado a um nome, basta digitarmos no console o nome associado a tal objeto e apertar a tecla ENTER.</p>
-<p>Como afirma Paradis em seu livro “R for Beginners” os objetos são caracterizados pelos seus nomes e pelo seu conteúdo, sendo mais específico seu atributo que normalmente irá especificar o tipo de dados representados por um objeto. podemos utilizar o mesmo exemplo que o autor citado acima trás em seu livro: <em>“considere uma variável que assume o valor 1, 2 ou 3: tal variável pode ser uma variável inteira (por exemplo, o número de ovos em um ninho), ou a codificação de uma variável categórica (por exemplo, sexo em algumas populações de crustáceos: machos, fêmeas ou hermafroditas). É claro que a análise estatística desta variável não será a mesma em ambos os casos: com R, os atributos do objeto fornecem as informações necessárias.”</em> Logo, a ação de um objeto depende dos seus respectivos atributos.</p>
+<p>Como afirma Paradis em seu livro “R for Beginners” os objetos são caracterizados pelos seus nomes e pelo seu conteúdo, sendo mais específico seu atributo que normalmente irá especificar o tipo de dados representados por um objeto. podemos utilizar o mesmo exemplo que o autor citado acima trás em seu livro: <em>“considere uma variável que assume o valor 1, 2 ou 3: tal variável pode ser uma variável inteira (por exemplo, o número de ovos em um ninho), ou a codificação de uma variável categórica (por exemplo, sexo em algumas populações de crustáceos: machos, fêmeas ou hermafroditas). É claro que a análise estatística desta variável não será a mesma em ambos os casos: com R, os atributos do objeto fornecem as informações necessárias”.</em> Logo, a ação de um objeto depende dos seus respectivos atributos.</p>
 <p>No R todos os objetos possuem uma classe e dois atributos intrínsecos. A forma de verificar a classe de um objeto é através da função class(), mas essa função pode apresentar resultados equívocos e por isso podemos utilizar a função sloop::s3_class() do pacote sloop.</p>
 <p><strong><em>OBS:</em></strong> também existe um atributo chamado classe (class) e os objetos que possuem tal atriuto são apenas os desenvolvidos na programação orientada a objetos (que é uma programação desenvolvida em um dos principais paradigmas da programação que é baseada no conceito de objetos).</p>
 <pre class="r"><code>q &lt;- 10; a &lt;- factor(q); class(q); class(a)</code></pre>
@@ -251,28 +250,28 @@ No RStudio basta acessarmos <em>Tools/Global Options/General/Default Working Dir
 <pre><code>## [1] 2 3 4 5 2 3 4 5</code></pre>
 <p>Um conjunto de dados aleatórios pode ser obtido pela função<code>runif(número de dado, min=,max)</code></p>
 <pre class="r"><code>teste &lt;- runif(10, min = 30, max = 65); teste</code></pre>
-<pre><code>##  [1] 49.70835 30.13081 60.54888 50.11326 62.70343 50.98893 42.54514 32.31564
-##  [9] 58.96048 46.10005</code></pre>
+<pre><code>##  [1] 42.34393 54.86283 59.44650 61.15819 36.82519 61.58947 61.81837 53.22391
+##  [9] 37.22597 41.87144</code></pre>
 <pre class="r"><code>#Rnorm()&#39; gera números aleatórios com distribuição normal:
 exemplo_distNorm &lt;- rnorm(100, mean = 50, sd = 5); exemplo_distNorm</code></pre>
-<pre><code>##   [1] 53.57736 51.58389 54.45194 47.37433 55.21985 49.11106 50.32170 54.77384
-##   [9] 54.70892 48.53160 45.39981 44.09951 51.08961 53.34367 52.16954 53.92841
-##  [17] 48.23142 51.98733 50.27378 50.71993 45.90607 53.48184 44.65152 51.05537
-##  [25] 45.84285 48.55158 52.77492 39.79026 46.83501 46.56463 42.34591 54.25196
-##  [33] 50.22534 54.96400 53.18683 46.10169 51.04951 46.46365 47.79053 50.10626
-##  [41] 46.97371 50.21925 44.97941 53.78769 50.82690 56.07008 49.71163 52.74636
-##  [49] 50.96779 45.79793 44.59672 52.30249 50.94003 47.60990 55.59570 39.14816
-##  [57] 46.09653 43.87424 50.83330 47.61850 49.57657 47.58470 51.63471 44.85751
-##  [65] 47.35502 49.30868 40.48564 43.70584 53.52642 44.90384 54.89332 45.40871
-##  [73] 54.47253 44.10039 50.15406 51.96130 63.23708 48.15406 48.79871 55.80529
-##  [81] 51.10566 53.80970 52.82981 54.03270 45.24538 51.42207 57.46970 51.60289
-##  [89] 53.14940 40.56949 49.42268 49.89093 53.44443 54.03961 53.42413 51.25034
-##  [97] 45.37238 58.31201 49.94163 47.46311</code></pre>
+<pre><code>##   [1] 52.19909 44.20330 53.16889 50.20350 56.13064 53.38955 43.03041 45.10344
+##   [9] 49.67610 51.24039 56.54841 49.35055 52.80815 46.13336 47.34644 60.30224
+##  [17] 50.07657 48.86393 45.04163 44.77222 52.16445 52.04831 50.99374 58.92841
+##  [25] 47.12914 44.49126 41.33941 45.53432 49.93261 54.94210 53.34431 49.19792
+##  [33] 52.26407 45.21659 52.63446 52.49410 59.98889 51.56316 50.11494 47.66573
+##  [41] 51.04324 57.40122 56.46217 46.78456 62.05284 50.58794 45.79002 46.12749
+##  [49] 42.33817 55.08399 43.87013 54.53319 49.07300 53.18102 56.60694 48.27976
+##  [57] 47.11096 43.97316 60.34043 49.69486 49.24145 49.57735 44.96882 43.03959
+##  [65] 46.03630 56.27330 49.07078 40.71358 41.93769 53.23004 52.25219 50.81526
+##  [73] 49.67827 41.42353 49.28267 50.35717 44.46013 46.52754 56.09701 51.70339
+##  [81] 52.67635 49.58538 51.29336 46.69567 51.73223 58.76974 55.61818 54.05468
+##  [89] 51.10999 47.84985 49.43536 50.21489 58.93201 48.35484 57.60397 53.56096
+##  [97] 58.52263 56.40312 50.70019 46.60129</code></pre>
 <p>Como selecionar amostras aleatórias de um conjunto de dados?</p>
 <p><code>sample(x, size, replace)</code></p>
 <p>x: vetor com o conjunto de amostras, size: número de amostras a serem selecionadas, replace: lógico, TRUE= com reposição, FALSE= sem reposição.</p>
 <pre class="r"><code>sample(1:30, 5, replace = FALSE)</code></pre>
-<pre><code>## [1] 12 29 14  6 24</code></pre>
+<pre><code>## [1] 24  9 25 18 10</code></pre>
 </div>
 <div id="vetor-de-caracter" class="section level2">
 <h2>Vetor de Caracter</h2>
@@ -704,8 +703,8 @@ exemplo_distNorm &lt;- rnorm(100, mean = 50, sd = 5); exemplo_distNorm</code></p
 </tr>
 <tr class="odd">
 <td align="center">%in%</td>
-<td align="center">“a” %in% c(“a,” “b,” “c”)</td>
-<td align="center">O elemento “a” está no vetor c(“a,” “b,” “c”)?</td>
+<td align="center">“a” %in% c(“a”, “b”, “c”)</td>
+<td align="center">O elemento “a” está no vetor c(“a”, “b”, “c”)?</td>
 </tr>
 </tbody>
 </table>
@@ -787,21 +786,21 @@ exemplo_distNorm &lt;- rnorm(100, mean = 50, sd = 5); exemplo_distNorm</code></p
 <div id="manipulação-gráfica" class="section level1">
 <h1>Manipulação Gráfica</h1>
 <p>O programa R possui uma interface gráfica que funciona através de comandos e argumentos: Tipos de gráficos: <code>barplot(); pie(); hist(); plot()</code>.</p>
-<p>Rótulos: main = “nome,” xlab = “nome,” ylab = “nome”</p>
+<p>Rótulos: main = “nome”, xlab = “nome”, ylab = “nome”</p>
 <p>Tamanho dos caracteres: ‘cex’ (character expansion)</p>
 <p>Titulo: use ’cex.main=valor.</p>
-<p>Para os eixos, use o argumento ‘cex.axis=valor.’</p>
-<p>Para o nome dos eixos, use ‘cex.lab=valor.’</p>
+<p>Para os eixos, use o argumento ‘cex.axis=valor’.</p>
+<p>Para o nome dos eixos, use ‘cex.lab=valor’.</p>
 <p>Cores: col=‘blue’</p>
-<p>Símbolo do plot (circulo, quadrado,…) usa-se o ‘pch.’</p>
+<p>Símbolo do plot (circulo, quadrado,…) usa-se o ‘pch’.</p>
 <p>Molduras do gráfico: bty=“L”- retira as molduras direita e superior; box()- adiciona moldura.</p>
-<p>Limite das escalas dos eixos: ‘xlim’ e ‘ylim.’</p>
+<p>Limite das escalas dos eixos: ‘xlim’ e ‘ylim’.</p>
 <p>Linhas, pontos: arrows() - adiciona seta; lines() - adiciona linha; points()- adiciona pontos.</p>
 <p>Legenda: legend()</p>
 <p>Para inserir um texto dentro do gráfico, utilize o comando “text”</p>
-<p>text(posição eixo X, posição eixo Y, “texto a inserir,” outros argumentos)</p>
+<p>text(posição eixo X, posição eixo Y, “texto a inserir”, outros argumentos)</p>
 <p>Para inserir um texto fora da área do gráfico, utilize o comando “mtext”</p>
-<p>mtext(“texto,” side = posição, line = posição, adj = posição entre esquerda(0) e direita (1)</p>
+<p>mtext(“texto”, side = posição, line = posição, adj = posição entre esquerda(0) e direita (1)</p>
 <p><strong>Para salvar gráficos no R em resolução máxima utilizamos o seguinte comando antes de plotar os gráficos:</strong></p>
 <p><code>tiff("arquivo.tif", res = 300, type = "windows", width = 3000, height = 2000)</code></p>
 <p><br />
@@ -822,7 +821,7 @@ plota o gráfico e encerra com</p>
 <p><code>scale_x_continuous(name = "Comprimento da Pétala", breaks = 1:7) +</code></p>
 <p><code>scale_y_continuous(name = "Largura da Pétala", breaks = 0:3, limits = c(0, 3)) +</code></p>
 <p><code>labs(title = 'Relação entre o Comprimento e Largura da pétala de três spp da flor Iris')</code></p>
-<p><img src="images/grafico" title="Resultado" /><br />
+<p><img src="/rmarkdown-libs/grafico" /><br />
 </p>
 <div id="mapeamento-estético" class="section level3">
 <h3>Mapeamento Estético</h3>
@@ -844,7 +843,7 @@ plota o gráfico e encerra com</p>
 <p>Boxplot: geom_boxplot()</p>
 <p>Densidade: geom_density()</p>
 <p>Gráfico de linhas: geom_line()</p>
-<p><img src="images/1.png" /></p>
+<p><img src="/rmarkdown-libs/1.png" /></p>
 </div>
 </div>
 </div>
