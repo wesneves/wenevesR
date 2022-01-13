@@ -151,5 +151,5 @@ params:
   theme:
     mainTheme: light
     showAttribute: no
-    singlePage: yes
+    singlePage: no
   title: weneves
