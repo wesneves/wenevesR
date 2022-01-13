@@ -58,8 +58,8 @@ params:
   project:
     icon: fas fa-project-diagram
     list:
-      - description:
-        title:
+      - description:etc etc
+        title: Curso Ecologia Prática no Programa R
         url: '#'
       - description: Breve Introdução à Linguagem de Programação R/RStudio com APlicações Práticas LINUX e WINDOWS
         title: Introdução ao Programa R
