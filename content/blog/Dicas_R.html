@@ -1,0 +1,37 @@
+---
+title: "Dicas para melhorar a Sintaxe no R"
+author: "Wesley Neves"
+date: "13/01/2022"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="dicas-para-melhorar-a-sintaxe-no-r." class="section level1">
+<h1>Dicas para melhorar a sintaxe no R.</h1>
+<p>Para facilitar nossa compreensão sobre as linhas de comando desenvolvidas no R é aconselhável realizar essas configurações no RStudio que se referem ao diagnóstico do código escrito:</p>
+<p><em>Tools &gt; Global options &gt; Code &gt; Editing. Marque todas as opções em General;</em></p>
+<p><em>Tools &gt; Global options &gt; Code &gt; Display, Marque todas as opções;</em></p>
+<p><em>Tools &gt; Global options &gt; Code &gt; Diagnostics. Marque todas as opções em R Diagnostics.</em></p>
+<p>Com essas configurações as linhas de comando estarão estruturadas com cores que distinguem diversas estruturas como funções, espaçamentos etc.</p>
+<div id="melhorando-o-script" class="section level2">
+<h2>Melhorando o Script</h2>
+<p>Existem alguns pacotes que automatizam a forma que organizamos nossas linhas de comando, o pacote <em><code>styler (função styler:::style_active_file())</code></em> e o <em><code>formatR</code></em> formatam nossas linhas de comando contidas em um diretório ou scrip para facilitar a compreensão sintática dos comandos. para mais exemplos acesse a <a href="https://yihui.org/formatr">página</a></p>
+<p>Um dos erros mais comuns na sintaxe de um código é o seu espaçamento, no geral devemos colocar espaçamento entre a maioria dos operadores básicos do R, exceto pelos operadores :, :: e :::, e sempre é recomendado utilizar um espaço após a vírgula. Podemos exemplificar como seria a sintaxe ideal para determinado comando, vamos utilizar a seguinte linha de comando como exemplo:</p>
+<pre class="r"><code>fun1 &lt;- &quot;desviopadrao&lt;-sqrt(var(dados_normais))&quot;</code></pre>
+<p>Observamos que a forma sintática utilizada nesse comando está bastante confusa sem os devidos espaçamentos, para verificarmos a melhor forma que poderíamos escrever esse comando é só utilizar a função <em><code>style_text(fun1)</code></em>, do pacote <em><code>style</code>,</em> mas antes de executar essa função no RStudio precisaremos instalar 3 pacotes que são: <em><code>styler</code>, <code>prettycode</code> e <code>rstudioapi</code>,</em> para tanto, vamos utilizar a função <em>combine <code>c()</code>:</em></p>
+<p><code>install.packages(c("prettycode", "styler", "rstudioapi"))</code></p>
+<p>Em seguida iremos utilizar o comando <em>styler::style_text(fun1)</em></p>
+<pre class="r"><code>styler::style_text(fun1)</code></pre>
+<pre><code>## desviopadrao &lt;- sqrt(var(dados_normais))</code></pre>
+<pre class="r"><code>comando &lt;- &quot;media&lt;-mean(x+1/length(x),na.rm=TRUE)&quot;</code></pre>
+<pre class="r"><code>styler::style_text(comando)</code></pre>
+<pre><code>## media &lt;- mean(x + 1 / length(x), na.rm = TRUE)</code></pre>
+</div>
+<div id="utilizando-chaves" class="section level2">
+<h2>Utilizando chaves</h2>
+<p>Quando usamos chaves em um comando, devemos evitar abri-lo e fechá-lo na mesma linha. E ainda, quando é função, as linhas de comando inseridas dentro das chaves, inserimos um recuo de dois espaços para entendermos a hierarquização das funções, isto é, função dentro de função.</p>
+<p>No demais, devemos estar atentos em não nomear nossos objetos com os nomes existentes no programa, para verificar se determinado nome já está associado a algum objeto basta utilizar a função <em><code>exists()</code>,</em> por exemplo: <em>exists(“aov”)</em> se a função retornar com o TRUE, significa que tal nome já está associado a determinado objeto no programa, devemos utilizar nomes curtos e comentar cada linha de comando com o uso do # para facilitar o entendimento após a criação da rotina.</p>
+</div>
+</div>
