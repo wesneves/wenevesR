@@ -2,10 +2,7 @@
 title: "Módulo 2"
 author: "Wesley de Oliveira Neves LACMAR - UFPE"
 output: html_document
-    toc: true
-    toc_float: 
-      collapsed: false
-      smooth_scroll: true
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -42,7 +39,7 @@ Representa um conjunto de disciplinas que se concentram na abordagens de problem
 
 ## Modelagem Ecológica
 
-Segundo [@peterson2012] um modelo ecológico em sua formulação matemática é utilizado para prever o comportamento de um aspecto do ecossistema (como a distribuição geográfica de espécies por exemplo) por meio de métodos computacionais ou algoritmos, tais estatísticas acessam a probabilidade de um modelo conforme seu conjunto de dados presentes *P (modelo \| dados).*
+Segundo \[@peterson2012\] um modelo ecológico em sua formulação matemática é utilizado para prever o comportamento de um aspecto do ecossistema (como a distribuição geográfica de espécies por exemplo) por meio de métodos computacionais ou algoritmos, tais estatísticas acessam a probabilidade de um modelo conforme seu conjunto de dados presentes *P (modelo \| dados).*
 
 ## Estatística Ecológica
 
