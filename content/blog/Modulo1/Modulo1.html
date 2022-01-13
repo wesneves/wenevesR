@@ -137,7 +137,7 @@ printf ENDP</p>
 <h2>Diretório de Trabalho</h2>
 <p>Basicamente um dos principais erros que acontece em uma rotina de programação R é acessar algum arquivo que não está no diretório de trabalho ou até mesmo salvar em um diretório sem ao menos prestar atenção onde o programa está salvando/acessando os arquivos. Esse lugar é conhecido como diretório de trabalho e o R estabelece uma conexão com esse lugar toda vez que o programa é iniciado. Para verificar seu diretório de trabalho, utilize o comando:</p>
 <pre class="r"><code>getwd()</code></pre>
-<pre><code>## [1] &quot;/home/weneves/Documentos/site/wenevesR/content/blog/Eco.R/Modulo1&quot;</code></pre>
+<pre><code>## [1] &quot;/home/weneves/Documentos/site/wenevesR/content/blog/Modulo1&quot;</code></pre>
 <p>Para alterar o diretório de trabalho existe a função <code>setwd()</code><br />
 No RStudio basta acessarmos <em>Tools/Global Options/General/Default Working Directory (when not in a project)</em>:</p>
 <p><code>setwd("/home/weneves/Documentos/Trabalhos R")</code></p>
@@ -253,28 +253,28 @@ No RStudio basta acessarmos <em>Tools/Global Options/General/Default Working Dir
 <pre><code>## [1] 2 3 4 5 2 3 4 5</code></pre>
 <p>Um conjunto de dados aleatórios pode ser obtido pela função<code>runif(número de dado, min=,max)</code></p>
 <pre class="r"><code>teste &lt;- runif(10, min = 30, max = 65); teste</code></pre>
-<pre><code>##  [1] 54.44348 43.96069 30.71357 34.10514 32.62680 64.67369 33.94337 56.75561
-##  [9] 52.95825 38.56362</code></pre>
+<pre><code>##  [1] 45.25772 53.95934 43.87197 31.95414 42.78474 37.46787 36.32236 41.07935
+##  [9] 34.66966 62.98464</code></pre>
 <pre class="r"><code>#Rnorm()&#39; gera números aleatórios com distribuição normal:
 exemplo_distNorm &lt;- rnorm(100, mean = 50, sd = 5); exemplo_distNorm</code></pre>
-<pre><code>##   [1] 44.74791 42.19365 56.56391 42.98640 36.83537 45.61430 55.12689 40.01265
-##   [9] 47.49310 57.76872 53.68102 56.51371 44.03910 40.96010 58.00035 58.89714
-##  [17] 48.02466 46.94408 38.21311 48.71647 52.00426 47.61627 43.66977 47.33446
-##  [25] 49.70690 41.49249 49.86217 47.57601 45.71730 42.29433 46.83471 63.05879
-##  [33] 54.34319 45.48956 46.11615 55.22704 53.48562 48.95739 59.16374 51.32782
-##  [41] 43.88533 50.75913 51.03101 46.78922 50.77618 39.54688 54.30739 46.20186
-##  [49] 43.83672 40.95444 53.38479 54.36151 53.14789 55.85412 54.79219 45.59543
-##  [57] 49.77124 46.45641 56.98830 55.02741 53.23474 49.70112 51.87602 52.33723
-##  [65] 56.27744 42.30015 47.13603 44.75719 52.17752 43.03628 49.65991 56.54580
-##  [73] 57.02131 57.28325 51.06170 50.22441 54.30290 34.72853 53.35170 44.72160
-##  [81] 46.92845 48.69014 43.47695 58.97248 59.97076 42.79338 58.80650 56.88570
-##  [89] 47.66197 52.81553 58.03895 49.70123 48.17701 55.31336 51.72351 52.50821
-##  [97] 49.90366 47.70345 59.57593 50.85292</code></pre>
+<pre><code>##   [1] 50.68622 45.57123 46.90622 52.48020 58.43940 51.23361 52.87842 53.22729
+##   [9] 47.86531 45.92494 51.84445 46.63798 53.85867 46.19265 44.36638 45.58660
+##  [17] 49.24618 50.81872 52.23082 51.70235 46.41319 50.61738 51.48093 51.96094
+##  [25] 51.43718 46.57022 58.72929 50.34592 54.02161 50.48398 47.28029 50.50562
+##  [33] 46.26120 51.09577 50.95322 54.95361 38.71668 54.94505 48.19601 46.03606
+##  [41] 59.35029 48.50920 56.76520 56.15839 53.40780 45.57495 47.54021 47.94613
+##  [49] 48.38822 51.31462 52.00085 40.91765 47.31591 53.45245 50.25270 41.37715
+##  [57] 46.25650 52.04812 54.65576 44.36854 49.23893 52.61994 47.18783 50.33935
+##  [65] 53.82566 48.13305 47.92522 43.50509 58.90795 45.42540 42.44905 52.51963
+##  [73] 51.58637 47.58270 55.75896 51.97143 36.69149 57.92126 50.61811 49.49419
+##  [81] 43.05919 58.22610 50.32825 46.30206 52.39902 49.74067 47.59171 43.87419
+##  [89] 63.41447 51.90818 47.50638 55.40524 50.80455 45.37237 49.24284 51.70684
+##  [97] 55.67175 53.78027 41.29435 45.52571</code></pre>
 <p>Como selecionar amostras aleatórias de um conjunto de dados?</p>
 <p><code>sample(x, size, replace)</code></p>
 <p>x: vetor com o conjunto de amostras, size: número de amostras a serem selecionadas, replace: lógico, TRUE= com reposição, FALSE= sem reposição.</p>
 <pre class="r"><code>sample(1:30, 5, replace = FALSE)</code></pre>
-<pre><code>## [1] 13 17  9 18 22</code></pre>
+<pre><code>## [1]  5  9 17 15 21</code></pre>
 </div>
 <div id="vetor-de-caracter" class="section level2">
 <h2>Vetor de Caracter</h2>
