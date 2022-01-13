@@ -1,6 +1,9 @@
 ---
 title: "Módulo 1"
 author: "Wesley de Oliveira Neves LACMAR - UFPE"
+date: 2022-13-01
+categories: ["R"]
+tags: ["RStudio", "ggplot2", "Funtion()", "Estrutura de Controle"]
 output:
   html_document:
     theme: paper
