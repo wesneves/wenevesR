@@ -107,11 +107,11 @@ params:
   showInAccordion:
     - expand: yes
       item: aboutme
-    - item: experience
-    - item: education
-    - item: publication
-    - item: project
     - item: skill
+    - item: education
+    - item: experience
+    - item: project 
+    - item: publication
     - item: hobby
   skill:
     icon: fas fa-cogs
@@ -150,6 +150,6 @@ params:
     title: Links
   theme:
     mainTheme: light
-    showAttribute: yes
-    singlePage: no
+    showAttribute: no
+    singlePage: yes
   title: weneves
