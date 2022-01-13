@@ -58,18 +58,21 @@ params:
   project:
     icon: fas fa-project-diagram
     list:
+      - description:
+      - title:
+       - url: '1, 2, 3, 4'
       - description: Breve Introdução à Linguagem de Programação R/RStudio com APlicações Práticas LINUX e WINDOWS
         title: Introdução ao Programa R
-        url: '#'
+        url: '1'
       - description: Introdução ao Delineamento Amostral e Tratamento de Dados; Introdução à Ecologia Matemática e Suas Vertentes.
         title: Delineamento Amostral e Introdução à Ecologia Matemática
-        url: '#'
+        url: '2'
       - description: Introdução à Probabilidade e do Pensamento Estatístico; Estatística Ecológica; Estatística Inferencial; Teste de Hipóteses; Regressão e Anova (Segundo a Estatística Frequentista e Bayesiana)
         title: Estatística Ecológica em R
-        url: '#'
+        url: '3'
       - description: Introdução à Ecologia Numérica - Medidas de Diversidade, Medidas de Similaridades, Análise de Agrupamentos, Técnicas de Ordenação e Generalizações 
         title: Ecologia Numérica em R
-        url: '#'
+        url: '4'
     title: Projetos
   publication:
     format:
