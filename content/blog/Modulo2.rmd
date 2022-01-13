@@ -2,6 +2,10 @@
 title: "Módulo 2"
 author: "Wesley de Oliveira Neves LACMAR - UFPE"
 output: html_document
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: true
 ---
 
 ```{r setup, include=FALSE}
