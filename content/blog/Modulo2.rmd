@@ -1,5 +1,5 @@
 ---
-title: "Modulo2"
+title: "Módulo 2"
 author: "Wesley de Oliveira Neves LACMAR - UFPE"
 output: html_document
 ---
