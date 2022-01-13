@@ -1,9 +1,8 @@
 ---
-title: "Ecologia Prática no R"
+title: "Módulo 1"
 author: "Wesley de Oliveira Neves LACMAR - UFPE"
 output:
   html_document:
-    theme: spacelab
     toc: true
     toc_float: 
       collapsed: false
@@ -11,15 +10,11 @@ output:
 bibliography: references.bib
 ---
 
-![](images/logo.png)
-
 ```{js, echo=FALSE}
 $('.title').css('color', 'green')
 ```
 
 # Módulo 1 -- Conhecendo o Ambiente R
-
-## 
 
 # Linguagem de Programação
 
@@ -107,7 +102,7 @@ Para abrir o R no terminal é só digitar o R maiúsculo e apertar Enter. \]
 
 Para instalar o RStudio é só acessar o link do [RStudio](https://rstudio.com/) ir na opção downloads e escolher a versão Ubuntu18/Debian 10, após baixado é só instalar normalmente como faria no Windows apertando o botão Instalar Pacotes.
 
-![](images/RStudio-01.png "Interface do RStudio")
+![](images/RStudio.png "Interface do RStudio")
 
 # Entendendo o Funcionamento do R:
 
@@ -346,7 +341,7 @@ Como selecionar amostras aleatórias de um conjunto de dados?
 x: vetor com o conjunto de amostras, size: número de amostras a serem selecionadas, replace: lógico, TRUE= com reposição, FALSE= sem reposição.
 
 ```{r}
-sample(1:30, 5, replace=FALSE)
+sample(1:30, 5, replace = FALSE)
 ```
 
 ## Vetor de Caracter
@@ -392,7 +387,7 @@ xyz <- matrix(1:100, ncol = 10, byrow = FALSE); xyz # Matriz com byrow = T -> Di
 ```
 
 ```{r}
-colnames(xyz)<-c("grupo1","grupo2","grupo3","grupo4","grupo5","grupo6","grupo7","grupo8","grupo9","grupo10"); rownames(xyz) <- rownames(xyz, do.NULL = FALSE, prefix = "Obs."); linhas <- letters[1:10]; rownames(xyz) <- linhas; xyz
+colnames(xyz) <- c("grupo1","grupo2","grupo3","grupo4","grupo5","grupo6","grupo7","grupo8","grupo9","grupo10"); rownames(xyz) <- rownames(xyz, do.NULL = FALSE, prefix = "Obs."); linhas <- letters[1:10]; rownames(xyz) <- linhas; xyz
 ```
 
 ```{r}
@@ -457,77 +452,43 @@ O símbolo \$ é o responsável pela seleção das colunas de um data frame, ant
 
 ## Operações no R
 
-+:------------------------:+:----------------------------------------------------------------------------------------------------------:+
-| \+                       | Soma unária, ou binária entre dois vetores                                                                 |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| \-                       | Subtração pode ser unária ou binária                                                                       |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| \*                       | Multiplicação entre dois vetores                                                                           |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| /                        | Divisão entre dois vetores                                                                                 |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| \^ ou \*\*               | Exponenciação binária, isto é 2\^5 ou 2 \*\* 5                                                             |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| \% / %                   | Divisão inteira                                                                                            |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| %%                       | Restante da divisão                                                                                        |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| sum()                    | Soma de elementos                                                                                          |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| prod()                   | Produto dos elementos                                                                                      |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| sqrt()                   | Raiz quadrada                                                                                              |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| log()                    | Função Logaritmo Neperiano                                                                                 |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| log10()                  | Função Logaritmo na base 10                                                                                |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| log(x, base = y)         | Logaritmo na base y do vetor ou escalar x                                                                  |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| exp()                    | Função exponencial                                                                                         |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| mean()                   | Média                                                                                                      |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| sd()                     | Descio padrão                                                                                              |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| var()                    | Variância                                                                                                  |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| median()                 | Mediana                                                                                                    |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| round()                  | Arredondamento de vetor numérico. Outros tipos são: trunc(), floor() e ceiling()                           |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| signif(x, digits = n)    | Arredondamento de vetor numérico. Outros tipos são: trunc(), floor() e ceiling()                           |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| ceiling()                | Arredonda o valor do vetor para o maior valor                                                              |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| floor()                  | Arredonda o valor para o menor valor                                                                       |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| factorial()              | Fatorial                                                                                                   |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| trunc()                  | Trunca (corta) as decimais do vetor                                                                        |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| length()                 | Retorna o tamanho do vetor                                                                                 |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| sort()                   | Retorna o vetor com os valores em ordem crescente                                                          |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| max()                    | Retorna o valor máximo do vetor                                                                            |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| min()                    | Retorna o valor mínimo do vetor                                                                            |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| range()                  | Retorna a amplitude do vetor                                                                               |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| summary()                | Sumário estatístico do vetor                                                                               |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| aov(y \~ x, data = d)    | Análise de variância unidirecional do quadro de dados d. Variável dependente (y) variável independente (x) |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| aov(y \~ x\*z, data = d) | Análise de variância bidirecional                                                                          |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| cor(x, y)                | Coeficiente de correlação                                                                                  |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| cor.teste(x, y)          | Retorna o coeficiente de correlação com um teste-t de significância                                        |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
-| lm(y \~x, data = d)      | Análise de regressão linear                                                                                |
-+--------------------------+------------------------------------------------------------------------------------------------------------+
+|                          |                                                                                                            |
+|:------------------------:|:----------------------------------------------------------------------------------------------------------:|
+|            \+            |                                 Soma unária, ou binária entre dois vetores                                 |
+|            \-            |                                    Subtração pode ser unária ou binária                                    |
+|            \*            |                                      Multiplicação entre dois vetores                                      |
+|            /             |                                         Divisão entre dois vetores                                         |
+|        \^ ou \*\*        |                               Exponenciação binária, isto é 2\^5 ou 2 \*\* 5                               |
+|          \% / %          |                                              Divisão inteira                                               |
+|            %%            |                                            Restante da divisão                                             |
+|          sum()           |                                             Soma de elementos                                              |
+|          prod()          |                                           Produto dos elementos                                            |
+|          sqrt()          |                                               Raiz quadrada                                                |
+|          log()           |                                         Função Logaritmo Neperiano                                         |
+|         log10()          |                                        Função Logaritmo na base 10                                         |
+|     log(x, base = y)     |                                 Logaritmo na base y do vetor ou escalar x                                  |
+|          exp()           |                                             Função exponencial                                             |
+|          mean()          |                                                   Média                                                    |
+|           sd()           |                                               Descio padrão                                                |
+|          var()           |                                                 Variância                                                  |
+|         median()         |                                                  Mediana                                                   |
+|         round()          |              Arredondamento de vetor numérico. Outros tipos são: trunc(), floor() e ceiling()              |
+|  signif(x, digits = n)   |              Arredondamento de vetor numérico. Outros tipos são: trunc(), floor() e ceiling()              |
+|        ceiling()         |                               Arredonda o valor do vetor para o maior valor                                |
+|         floor()          |                                    Arredonda o valor para o menor valor                                    |
+|       factorial()        |                                                  Fatorial                                                  |
+|         trunc()          |                                    Trunca (corta) as decimais do vetor                                     |
+|         length()         |                                         Retorna o tamanho do vetor                                         |
+|          sort()          |                             Retorna o vetor com os valores em ordem crescente                              |
+|          max()           |                                      Retorna o valor máximo do vetor                                       |
+|          min()           |                                      Retorna o valor mínimo do vetor                                       |
+|         range()          |                                        Retorna a amplitude do vetor                                        |
+|        summary()         |                                        Sumário estatístico do vetor                                        |
+|  aov(y \~ x, data = d)   | Análise de variância unidirecional do quadro de dados d. Variável dependente (y) variável independente (x) |
+| aov(y \~ x\*z, data = d) |                                     Análise de variância bidirecional                                      |
+|        cor(x, y)         |                                         Coeficiente de correlação                                          |
+|     cor.teste(x, y)      |                    Retorna o coeficiente de correlação com um teste-t de significância                     |
+|   lm(y \~x, data = d)    |                                        Análise de regressão linear                                         |
 
 ## Resumo de Funções
 
@@ -541,23 +502,15 @@ O símbolo \$ é o responsável pela seleção das colunas de um data frame, ant
 
 ## Operadores Lógicos
 
-+--------------------+---------------------------+------------------------------------------------+
-| Operadores Lógicos | Sintaxe                   | Pergunta                                       |
-+:==================:+:=========================:+:==============================================:+
-| \<                 | a \< b                    | a é menor que b                                |
-+--------------------+---------------------------+------------------------------------------------+
-| \>                 | a \> b                    | a é maior que b                                |
-+--------------------+---------------------------+------------------------------------------------+
-| ==                 | a == b                    | a é igual a b                                  |
-+--------------------+---------------------------+------------------------------------------------+
-| !=                 | a != b                    | a é diferente de b                             |
-+--------------------+---------------------------+------------------------------------------------+
-| \>=                | a \>= b                   | a é maior ou igual a b                         |
-+--------------------+---------------------------+------------------------------------------------+
-| \<=                | a \<= b                   | a é menor ou igual a b                         |
-+--------------------+---------------------------+------------------------------------------------+
-| %in%               | "a" %in% c("a", "b", "c") | O elemento "a" está no vetor c("a", "b", "c")? |
-+--------------------+---------------------------+------------------------------------------------+
+| Operadores Lógicos |          Sintaxe          |                    Pergunta                    |
+|:------------------:|:-------------------------:|:----------------------------------------------:|
+|         \<         |          a \< b           |                a é menor que b                 |
+|         \>         |          a \> b           |                a é maior que b                 |
+|         ==         |          a == b           |                 a é igual a b                  |
+|         !=         |          a != b           |               a é diferente de b               |
+|        \>=         |          a \>= b          |             a é maior ou igual a b             |
+|        \<=         |          a \<= b          |             a é menor ou igual a b             |
+|        %in%        | "a" %in% c("a", "b", "c") | O elemento "a" está no vetor c("a", "b", "c")? |
 
 ## Operadores Booleanos
 
@@ -571,7 +524,7 @@ O símbolo \$ é o responsável pela seleção das colunas de um data frame, ant
 |        all()         | all(cond1, cond2, ...) |   Todas as condições são verdadeiras?   |
 
 ```{r}
-notas.dos.alunos <-c (6.0,5.1,6.8,2.8,6.1,9.0,4.3,10.4,6.0,7.9,8.9,6.8,9.8,4.6,11.3,8.0,6.7,4.5)
+notas.dos.alunos <- c(6.0,5.1,6.8,2.8,6.1,9.0,4.3,10.4,6.0,7.9,8.9,6.8,9.8,4.6,11.3,8.0,6.7,4.5)
 ```
 
 Quantos valores iguais ou maiores que cinco? `sum(notas.dos.alunos>=5)`
@@ -581,13 +534,13 @@ Quantos alunos tiraram abaixo de 5? E abaixo de 4?
 Qual a proporção deste valores em relação ao total?
 
 ```{r}
-sum(notas.dos.alunos>=5)/length(notas.dos.alunos)
+sum(notas.dos.alunos >= 5)/length(notas.dos.alunos)
 ```
 
 Como saber a quantidade dos dados utilizando a função `sum()` com os operadores? *Não vale utilizar a função length.*
 
 ```{r}
-sum(notas.dos.alunos!=0)
+sum(notas.dos.alunos != 0)
 ```
 
 # Importando dados no RStudio
@@ -691,7 +644,7 @@ OU
 
 `labs(title = 'Relação entre o Comprimento e Largura da pétala de três spp da flor Iris')`
 
-Resultado: ![](images/grafico "Gráfico")\
+![](images/grafico "Resultado")\
 
 ### Mapeamento Estético
 
@@ -752,7 +705,7 @@ Podemos executar qualquer chamada de função de três maneiras, sendo elas: ani
 Primeiro iremos criar um conjunto com 50 números aleatórios provenientes de uma distribuição normal (para padronizarmos os dados, vamos enraizar o resultado executando a função `set.seed(5))` em seguida iremos calcular o desvio padrão para esses dados de três maneiras.\
 
 ```{r}
-set.seed(5); dados_normais <- rnorm (50)
+set.seed(5); dados_normais <- rnorm(50)
 ```
 
 -   Função Aninhada:
@@ -764,7 +717,7 @@ sqrt(var(dados_normais))
 -   Função Intermediária:
 
 ```{r}
-variancia <- var (dados_normais)
+variancia <- var(dados_normais)
 desvio_padrao <- sqrt(variancia); desvio_padrao
 ```
 
@@ -882,7 +835,7 @@ js <- 1
 repeat {
   print(js)
   js <- js + 1
-  if (js > 10) break ()
+  if (js > 10) break()
   }
 ```
 
@@ -974,7 +927,7 @@ Existem alguns pacotes que automatizam a forma que organizamos nossas linhas de 
 Um dos erros mais comuns na sintaxe de um código é o seu espaçamento, no geral devemos colocar espaçamento entre a maioria dos operadores básicos do R, exceto pelos operadores :, :: e :::, e sempre é recomendado utilizar um espaço após a vírgula. Podemos exemplificar como seria a sintaxe ideal para determinado comando, vamos utilizar a seguinte linha de comando como exemplo:
 
 ```{r}
-fun1<-"desviopadrao<-sqrt(var(dados_normais))"
+fun1 <- "desviopadrao<-sqrt(var(dados_normais))"
 ```
 
 Observamos que a forma sintática utilizada nesse comando está bastante confusa sem os devidos espaçamentos, para verificarmos a melhor forma que poderíamos escrever esse comando é só utilizar a função *`style_text(fun1)`*, do pacote *`style`,* mas antes de executar essa função no RStudio precisaremos instalar 3 pacotes que são: *`styler`, `prettycode` e `rstudioapi`,* para tanto, vamos utilizar a função *combine `c()`:*
@@ -1030,51 +983,3 @@ Podemos acessar os dados contidos nos pacotes através do argumento `data()`
 # Usando os Operadores :: e :::
 
 Para executarmos uma função de um determinado pacote sem a necessidade de carregar o pacote (library(pacote)) utilizamos o operador ::, contudo se conhecemos a estrutura de um pacote e sabemos que o pacote contém função não exportadas pelo namespace basta utilizar o comando ::: para carregar essas funções, mas não recomendamos a utilização de funções internas no desenvolvimento de pacotes uma vez que tais funções podem passar por mudanças se os desenvolvedores atualizarem algum índice etc.
-
-# 
-
-# Módulo 2 - Delineamento Amostral e Introdução à Ecologia Matemática
-
-## 
-
-# Delineamento de Experimentos
-
-Um bom resultado de um estudo depende exclusivamente de um bom **delineamento amostral** dos dados juntamente com o esboço experimental adequado. Erros existentes no delineamento amostral ou na hora da coleta dos dados torna quase impossível a missão de *contornar* tais falhas graças aos pressupostos das análises estatísticas que serão utilizadas, por isso é importante ser cauteloso na hora de definir seu experimento, já que experimentos bem feitos podem ser analisados de diversas maneiras afim de responder diversas perguntas levantadas.
-
-Primeiro o pesquisador deve estar atento a **pergunta central do estudo**, pular essa parte torna os objetivos do trabalho bastante confusos e imprecisos. Questões como: *Existem diferenças espaciais ou temporais na variável Y?, qual o efeito do fator X sobre a variável Y, os dados serão coletados de forma independente e qual será o esforço amostral necessário?* Tornam o trabalho mais **conciso** e **completo**.
-
-Questões sobre **divergências espacias/temporais** podem ser analisadas facilmente pela utilização da *análise de variância ou regressão*, por exemplo. O resultado dessas análises produzirão resultados **dicotômicos** de sim ou não para essa pergunta. A segunda questão levantada pode ser respondida por **experimentos manipulativos** (experimento no campo ou no laboratório) basicamente o pesquisador irá determinar níveis do fator X e medir posteriormente a resposta da variável Y, se tudo ocorrer bem o resultado do valor *P* pode ser utilizado para verificar se a hipótese nula (hipótese de nenhum efeito do fato, ou seja essa hipótese atribui a fonte de variação a aleatoriedade) é rejeitada ou sustentada pela análise utilizada.
-
-O experimento é a base do processo científico. Os ecólogos utilizam constantemente uma gama de variedade de experimentos. Em seu sentido mais amplo e simples, um experimento pode ser considerado como o teste de uma ideia, que por sua vez pode ser resumida como uma hipótese que nada mais é do que uma explicação proposta para uma observação. Os [experimentos ecológicos]{.ul} podem ser classificados em ***Manipulação*****, *Naturais e Observação****.*
-
-## Experimentos de Manipulação
-
-Como o próprio nome informa, nesse tipo de experimento o pesquisador irá **alterar** os níveis da variável preditora e então mensura os níveis das respostas a essa alteração induzida. Normalmente esse tipo de experimento são utilizados para *testar relações de causa e efeito*. Por exemplo, se quiséssemos saber se a hipótese de que a densidade e a composição da comunidade fitoplantônica é afetada pela intensidade luminosa e nutrientes, podemos montar um experimento para alterar o nível de nutrientes e intensidade luminosa e medir a estrutura, composição e densidade da comunidade fitoplantônica. Posteriormente poderíamos representar graficamente os resultados. A hipótese nula, por sua vez argumentaria que não existem relações entre as variáveis e a variação encontrada nos dados é graças a aleatoridade.\
-
-# Ecologia Matemática
-
-Segundo *Legendre & Legendre, (1998)* a **Ecologia Matemática** abrange todo o domínio das aplicações matemáticas à ecologia. Elas podem ser divididas em ***Ecologia Teórica*** e ***Ecologia Quantitativa**.*
-
-## Ecologia Teórica
-
-A ecologia teórica se concentra ao estudo de sistemas ecológicos utilizando métodos teóricos como modelos conceituais e até mesmo simulações computacionais. É importante entender que essa linha de pensamento objetiva-se a compreensão de modelos mecanísticos nos sistemas biológicos.
-
-## Ecologia Quantitativa
-
-Representa um conjunto de disciplinas que se concentram na abordagens de problemas aplicados à ecologia utilizando vários métodos estatísticos e computacionais. A ecologia quantitativa se divide em ***Modelagem Ecológica, Estatística Ecológica e Ecologia Numérica**.*
-
-## Modelagem Ecológica
-
-Segundo [@peterson2012] um modelo ecológico em sua formulação matemática é utilizado para prever o comportamento de um aspecto do ecossistema (como a distribuição geográfica de espécies por exemplo) por meio de métodos computacionais ou algoritmos, tais estatísticas acessam a probabilidade de um modelo conforme seu conjunto de dados presentes *P (modelo \| dados).*
-
-## Estatística Ecológica
-
-Representa o estudo científico para a **descrição da variação natural dos dados ecológicos**, a estatística ecológica pode ser dividida em *estatística descritiva, inferencial e probabilística*. A **estatística descritiva** organiza e sumariza os dados, enquanto que a **inferencial** determina se existem divergências entre amostras e se tais diferenças são provenientes do acaso ou se representam populações distintas. Muitas inferências estatísticas comparam conjuntos de dados obtidos com distribuições ou variações aleatórias de números (estatística paramétrica ou frequentista).
-
-## Ecologia Numérica
-
-É um campo da ecologia quantitativa dedicado à análise numérica de conjuntos de dados ecológicos. Os ecólogos de comunidade são os principais usuários desses métodos. O objetivo desse campo é **descrever e interpretar** a estrutura dos conjuntos de dados combinando uma variedade de abordagens numéricas
-
-## Estatística Ecológica vs Ecologia Numérica
-
-A diferença entre ambos está no fato de que a **ecologia numérica** combina métodos estatísticos multidimensionais com técnicas heurísticas (por exemplo, análise de agrupamentos) que ainda não tem uma base estatística consolidada.

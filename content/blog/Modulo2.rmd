@@ -1,0 +1,53 @@
+---
+title: "Modulo2"
+author: "Wesley de Oliveira Neves LACMAR - UFPE"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Módulo 2 - Delineamento Amostral e Introdução à Ecologia Matemática
+
+# Delineamento de Experimentos
+
+Um bom resultado de um estudo depende exclusivamente de um bom **delineamento amostral** dos dados juntamente com o esboço experimental adequado. Erros existentes no delineamento amostral ou na hora da coleta dos dados torna quase impossível a missão de *contornar* tais falhas graças aos pressupostos das análises estatísticas que serão utilizadas, por isso é importante ser cauteloso na hora de definir seu experimento, já que experimentos bem feitos podem ser analisados de diversas maneiras afim de responder diversas perguntas levantadas.
+
+Primeiro o pesquisador deve estar atento a **pergunta central do estudo**, pular essa parte torna os objetivos do trabalho bastante confusos e imprecisos. Questões como: *Existem diferenças espaciais ou temporais na variável Y?, qual o efeito do fator X sobre a variável Y, os dados serão coletados de forma independente e qual será o esforço amostral necessário?* Tornam o trabalho mais **conciso** e **completo**.
+
+Questões sobre **divergências espacias/temporais** podem ser analisadas facilmente pela utilização da *análise de variância ou regressão*, por exemplo. O resultado dessas análises produzirão resultados **dicotômicos** de sim ou não para essa pergunta. A segunda questão levantada pode ser respondida por **experimentos manipulativos** (experimento no campo ou no laboratório) basicamente o pesquisador irá determinar níveis do fator X e medir posteriormente a resposta da variável Y, se tudo ocorrer bem o resultado do valor *P* pode ser utilizado para verificar se a hipótese nula (hipótese de nenhum efeito do fato, ou seja essa hipótese atribui a fonte de variação a aleatoriedade) é rejeitada ou sustentada pela análise utilizada.
+
+O experimento é a base do processo científico. Os ecólogos utilizam constantemente uma gama de variedade de experimentos. Em seu sentido mais amplo e simples, um experimento pode ser considerado como o teste de uma ideia, que por sua vez pode ser resumida como uma hipótese que nada mais é do que uma explicação proposta para uma observação. Os [experimentos ecológicos]{.ul} podem ser classificados em ***Manipulação*****, *Naturais e Observação****.*
+
+## Experimentos de Manipulação
+
+Como o próprio nome informa, nesse tipo de experimento o pesquisador irá **alterar** os níveis da variável preditora e então mensura os níveis das respostas a essa alteração induzida. Normalmente esse tipo de experimento são utilizados para *testar relações de causa e efeito*. Por exemplo, se quiséssemos saber se a hipótese de que a densidade e a composição da comunidade fitoplantônica é afetada pela intensidade luminosa e nutrientes, podemos montar um experimento para alterar o nível de nutrientes e intensidade luminosa e medir a estrutura, composição e densidade da comunidade fitoplantônica. Posteriormente poderíamos representar graficamente os resultados. A hipótese nula, por sua vez argumentaria que não existem relações entre as variáveis e a variação encontrada nos dados é graças a aleatoridade.\
+
+# Ecologia Matemática
+
+Segundo *Legendre & Legendre, (1998)* a **Ecologia Matemática** abrange todo o domínio das aplicações matemáticas à ecologia. Elas podem ser divididas em ***Ecologia Teórica*** e ***Ecologia Quantitativa**.*
+
+## Ecologia Teórica
+
+A ecologia teórica se concentra ao estudo de sistemas ecológicos utilizando métodos teóricos como modelos conceituais e até mesmo simulações computacionais. É importante entender que essa linha de pensamento objetiva-se a compreensão de modelos mecanísticos nos sistemas biológicos.
+
+## Ecologia Quantitativa
+
+Representa um conjunto de disciplinas que se concentram na abordagens de problemas aplicados à ecologia utilizando vários métodos estatísticos e computacionais. A ecologia quantitativa se divide em ***Modelagem Ecológica, Estatística Ecológica e Ecologia Numérica**.*
+
+## Modelagem Ecológica
+
+Segundo [@peterson2012] um modelo ecológico em sua formulação matemática é utilizado para prever o comportamento de um aspecto do ecossistema (como a distribuição geográfica de espécies por exemplo) por meio de métodos computacionais ou algoritmos, tais estatísticas acessam a probabilidade de um modelo conforme seu conjunto de dados presentes *P (modelo \| dados).*
+
+## Estatística Ecológica
+
+Representa o estudo científico para a **descrição da variação natural dos dados ecológicos**, a estatística ecológica pode ser dividida em *estatística descritiva, inferencial e probabilística*. A **estatística descritiva** organiza e sumariza os dados, enquanto que a **inferencial** determina se existem divergências entre amostras e se tais diferenças são provenientes do acaso ou se representam populações distintas. Muitas inferências estatísticas comparam conjuntos de dados obtidos com distribuições ou variações aleatórias de números (estatística paramétrica ou frequentista).
+
+## Ecologia Numérica
+
+É um campo da ecologia quantitativa dedicado à análise numérica de conjuntos de dados ecológicos. Os ecólogos de comunidade são os principais usuários desses métodos. O objetivo desse campo é **descrever e interpretar** a estrutura dos conjuntos de dados combinando uma variedade de abordagens numéricas
+
+## Estatística Ecológica vs Ecologia Numérica
+
+A diferença entre ambos está no fato de que a **ecologia numérica** combina métodos estatísticos multidimensionais com técnicas heurísticas (por exemplo, análise de agrupamentos) que ainda não tem uma base estatística consolidada.
