@@ -60,7 +60,7 @@ params:
     list:
       - description: Nesse curso abordaremos inteiramente a Ecologia Matemática e suas vertentes (Estatística Ecológica, Modelagem Ecológica e Ecologia Numérica). Todas as abordagens estão aplicadas ao programa R, utilizando a interface RStudio.
         title: Curso Ecologia Prática no Programa R
-        url: '#'
+        url: '/blog/curso_eco.r/sumario/'
     title: Projetos
   publication:
     format:
