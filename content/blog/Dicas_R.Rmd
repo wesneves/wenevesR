@@ -1,0 +1,56 @@
+---
+title: "Dicas para melhorar a Sintaxe no R"
+author: "Wesley Neves"
+date: "13/01/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Dicas para melhorar a sintaxe no R.
+
+Para facilitar nossa compreensão sobre as linhas de comando desenvolvidas no R é aconselhável realizar essas configurações no RStudio que se referem ao diagnóstico do código escrito:
+
+*Tools \> Global options \> Code \> Editing. Marque todas as opções em General;*
+
+*Tools \> Global options \> Code \> Display, Marque todas as opções;*
+
+*Tools \> Global options \> Code \> Diagnostics. Marque todas as opções em R Diagnostics.*
+
+Com essas configurações as linhas de comando estarão estruturadas com cores que distinguem diversas estruturas como funções, espaçamentos etc.
+
+## Melhorando o Script
+
+Existem alguns pacotes que automatizam a forma que organizamos nossas linhas de comando, o pacote *`styler (função styler:::style_active_file())`* e o *`formatR`* formatam nossas linhas de comando contidas em um diretório ou scrip para facilitar a compreensão sintática dos comandos. para mais exemplos acesse a [página](https://yihui.org/formatr)
+
+Um dos erros mais comuns na sintaxe de um código é o seu espaçamento, no geral devemos colocar espaçamento entre a maioria dos operadores básicos do R, exceto pelos operadores :, :: e :::, e sempre é recomendado utilizar um espaço após a vírgula. Podemos exemplificar como seria a sintaxe ideal para determinado comando, vamos utilizar a seguinte linha de comando como exemplo:
+
+```{r}
+fun1 <- "desviopadrao<-sqrt(var(dados_normais))"
+```
+
+Observamos que a forma sintática utilizada nesse comando está bastante confusa sem os devidos espaçamentos, para verificarmos a melhor forma que poderíamos escrever esse comando é só utilizar a função *`style_text(fun1)`*, do pacote *`style`,* mas antes de executar essa função no RStudio precisaremos instalar 3 pacotes que são: *`styler`, `prettycode` e `rstudioapi`,* para tanto, vamos utilizar a função *combine `c()`:*
+
+`install.packages(c("prettycode", "styler", "rstudioapi"))`
+
+Em seguida iremos utilizar o comando *styler::style_text(fun1)*
+
+```{r}
+styler::style_text(fun1)
+```
+
+```{r}
+comando <- "media<-mean(x+1/length(x),na.rm=TRUE)"
+```
+
+```{r}
+styler::style_text(comando)
+```
+
+## Utilizando chaves
+
+Quando usamos chaves em um comando, devemos evitar abri-lo e fechá-lo na mesma linha. E ainda, quando é função, as linhas de comando inseridas dentro das chaves, inserimos um recuo de dois espaços para entendermos a hierarquização das funções, isto é, função dentro de função.
+
+No demais, devemos estar atentos em não nomear nossos objetos com os nomes existentes no programa, para verificar se determinado nome já está associado a algum objeto basta utilizar a função *`exists()`,* por exemplo: *exists("aov")* se a função retornar com o TRUE, significa que tal nome já está associado a determinado objeto no programa, devemos utilizar nomes curtos e comentar cada linha de comando com o uso do \# para facilitar o entendimento após a criação da rotina.

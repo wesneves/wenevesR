@@ -1,0 +1,179 @@
+---
+title: "Sumário"
+author: "Wesley Neves"
+date: "13/01/2022"
+categories: ["R"]
+tags: ["Sumário", "Ecologia Prática no Programa R", "Bioestatística", "Ecologia Numérica"]
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Módulo 1
+
+    1. Introdução à Linguagem de Programação
+        i. O que é linguagem?
+        ii. Linguagem de Alto Nível
+        iii. Linguagem de Baixo Nível
+    2. O que é o Programa R?
+    3. O que é o RStudio?
+    4. Instalando o R e RStudio
+        i. Versão WINDOWS
+        ii. Versão LINUX (Linux Mint)
+    5. Entendendo o Funcionamento do R
+        i. Princípios do R
+    6. Iniciando o RStudio
+        i. Regras Sintáticas do Programa
+        ii. Comandos de Ajuda no RStudio
+        iii. Diretório de Trabalho
+    7. Comandos Elementares
+        i. Expressão
+        ii. Atribuição
+    8. Objetos
+        i. Classes
+        ii. Atributos Intrínsecos 
+        iii. Modo
+        iv. Comprimento
+    9. Tipos de Objetos
+        i. Vetores Atômicos
+        ii. Vetores em Listas
+        iii. Operações no R
+        iv. Principais Funções
+        v. Operadores Lógicos
+        vi. Operadores Booleanos
+    10. Importando Dados no RStudio
+        i. Função scan()
+    11. Manipulação Gráfica
+        i. Interface Integrada ao R
+        ii. Salvar Arquivos em 300dpi
+        iii. GGPLOT 2
+        iv. Pacote esquisse()
+    12.  Funções
+        i. Chamadas de Funções
+        ii. Funções Aninhadas
+        iii. Funções Intermediárias
+        iv. Operador Pipe
+    13. Estruturas de Controle
+        i. if()
+        ii. else()
+        iii. ifelse()
+        iv. while()
+        v. for()
+        vi. repreat()
+    14. Criando Funções do Tipo Clousure
+        i. Argumento
+        ii. Corpo
+        iii. Environment
+        iv. Escopo Léxico
+    15. Dicas Sintaxe no R
+        i. Melhorando o Script
+        ii. Pacote style
+        iii. Pacote prettycode
+        iv. pacote rstudioapi
+        v. Utilizando Chaves
+    16. O que é um Pacote
+        i. Estrutura Básica de um Pacote
+    17. Instalando e Carregando Pacotes
+    18. Usando Operadores :: e :::
+
+# Módulo 2
+
+    1. Delineamento de Experimentos
+        i. Pergunta Central do Estudo
+        ii. Experimentos Manipulativos
+        iii. Experimentos Naturais
+        iv. Replicação
+        v. Independência Amostral
+        vi. Questões sobre Delineamento Amostral
+        vii. Variáveis Categóricas x Variáveis Contínuas
+        viii. Variáveis Dependentes e Independentes
+    2. Curadoria dos Dados
+        i. Organizando os Dados Brutos
+        ii. Sumário dos Dados
+        iii. Transformação dos Dados
+        iv. Padronização dos Dados
+        v. Matriz de Dados Ecológicos
+    3. Introdução à Ecologia Matemática
+        i. Ecologia Teórica
+        ii. Ecologia Quantitativa
+        iii. Modelagem Ecológica
+        iv. Estatística Ecológica
+        v. Ecologia Numérica
+
+# Módulo 3
+
+    1. Introdução a Probabilidade
+        i. Medindo Probabilidades
+        ii. Teoremas de Bayes
+    2. Variáveis Aleatórias e Distribuições de Probabilidade
+        i. Variáveis Discretas
+        ii. Variáveis Contínuas
+        iii. Teorema do Limite Central
+    3. Estatística Descritiva
+        i. Medidas de Posição
+        ii. Medidas de Dispersão
+        iii. Intervalos de Confiança
+    4. Teste de Hipóteses
+        i. Métodos Científicos
+        ii. Testando Hipóteses Científicas
+        iii. Estimativa de Parâmetros
+    5. Estatística Inferencial
+        i. Problemas Amostral
+        ii. Análise de Monte Carlo
+        iii. Análise Paramétricas
+        iv. Análises Bayesianas
+    6. Regressão
+        i. Pressupostos da Regressão
+        ii. Mínimos Quadrados
+        iii. Regressão Linear Monte Carlo
+        iv. Regressão Linear Bayesiana
+        v. Regressão Múltipla
+    7. Análise de Variância
+        i. Pressupostos da ANOVA
+        ii. Tipos de Anova
+        iii. Comparações a Posteriori
+        iv. Correções Bonferroni
+
+# Módulo 4
+
+    1. Introdução à Ecologia Numérica
+        i. Análise Multivariada
+        ii. Análise Multidimensional
+        iii. Técnicas de Classificação
+        iv. Técnicas de Ordenação
+    2. O que é Diversidade?
+        i. Componentes da Diversidade
+        ii. Riqueza
+        iii. Equitabilidade
+        iv. Divergência
+        v. Abundância, Dominância, Frequência, Constância, Densidade
+    3. Medidas de Diversidade
+        i. Índices de Riqueza
+        ii. Curvas de Acumulação de Espécies
+        iii. Estimadores Paramétricos
+        iv. Estimadores Não-Paramétricos
+        v. Curvas de Acumulação de DIversidade Efetiva
+        vi. Índices de Diversidade
+        vii. Medidas Paramétricas de Diversidade
+        viii. Medidas Não-Paramétricas de Diversidade
+        ix. Números de Hill
+        x. Curvas de Rarefação
+    4. Medidas de Similaridade
+        i. Coeficientes de Associação
+        ii. Coeficientes de Correlação
+        iii. Coeficientes de Distância
+        iv. Matriz de Similaridade
+        v. Análises de Similaridade
+        vi. Correspondência de Matrizes
+    5. Análise de Agrupamentos
+        i. Métodos Hierárquicos
+        ii. Métodos Não-Hierárquicos
+    6. Técnicas de Ordenação
+        i. Métodos Diretos
+        ii. Métodos Indiretos
+        iii. Comparações de Ordenação
+    7. Generalização
+        i. Análise Discriminante
+        ii. Análise de Variáveis 

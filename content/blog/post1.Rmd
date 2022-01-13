@@ -1,0 +1,43 @@
+---
+title: "Sobre o Programa R"
+author: "Wesley Neves"
+date: "13/01/2022"
+categories: ["R"]
+tags: ["RStudio", "Programa R", "LINUX", "WINDOWS"]
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# O que é o programa R?
+
+Segundo o [site](https://www.r-project.org/about.html) oficial do programa o R é uma linguagem e ambiente para computação com foco em estatística e gráficos, é importante perceber que esse ambiente de programação nada mais é que um projeto GNU semelhante a linguagem e ambiente S desenvolvido pela *Bell Laboratories* por John Chambers e colegas. Por ser basicamente um projeto GNU, o R é um software livre que pode ser estendido através da utilização de pacotes por meio da família CRAN de sites da internet. O termo ambiente pretende caracterizar o R como um sistema totalmente planejado e coerente e ai está a principal diferença entre esse ambiente com os sofwares de análise de dados, o R permite ao pesquisador certa liberdade na hora da análise de dados, já que tal ambiente de programação acompanha o progresso científico, ou seja: novas abordagens metodológicas são desenvolvidas e disponibilizadas nessa plataforma através da criação de pacotes estatísticos, que são disponibilizados para a comunidade científicas através da página oficial CRAN ou pelo github.
+
+O programa foi desenvolvido por George Ross Ihaka e Robert Clifford Gentleman em 1991, nesta ocasião, os professores (Ihaka e Gentleman) que trabalhavam na Universidade de Auckland (Nova Zelândia) desenvolveram uma alternativa à linguagem S, na qual foi oficialmente divulgado em 1995. Em 1997, um grupo central responsável pelas atualizações e estabilizações do programa foi criado e chamado de R Development Core Team, no mesmo ano surgiu o CRAN (Comprehensive R Archive Network) que consiste num conjunto de sites (espelhos) que transportam material idêntico com as contribuições do R de uma forma geral.
+
+A linguagem R é uma linguagem **interpretada**, isto é, o código fonte nessa linguagem é executado por um programa de computador (interpretador) na qual interpreta linha por linha (e aqui está a diferença entre uma linguagem compilada e uma interpretada, na linguagem compilada o compilador converte todo o código de uma vez para a linguagem binária, por causa disso o processo compilado é muito mais rápido que o traduzido, na qual o processo é repetitivo, pois o interpretador processa o código linha por linha) que em seguida é processado pelo sistema operacional ou processador.
+
+# O que é o RSTudio?
+
+Basicamente o RStudio (Figura 1) é uma interface gráfica criado por Joseph J. Allaire. Essa interface deixou o R mais popular, já que o RStudio facilita a utilização de vários recursos por meio de botões e uma interface parecida com os programas usuais utilizados por vários sistemas operacionais.
+
+Digamos que o RStudio é mais amigável com o estudante que está aprendendo essa nova linguagem. Uma das vantagens dessa interface é a disposição de quadrantes que organizam as atividades dentro dessa plataforma. Podemos configurar a aparência e a ordem dos quadrantes no RStudio em: *Tools \> Global Options \> Appearance e em Pane Layout*.
+
+# Instalando o R e o RStudio:
+
+Como mencionamos anteriormente, uma das vantagens do "programa R" é sua compatibilidade com vários sistemas Operacionais, portanto, vamos mostrar como podemos instalar esse sistema tanto no Windows como no Linux Mint (Uma das distros mais utilizadas do Linux e foi baseada no Ubuntu, portanto essas duas distros possuem ampla compatibilidade entre si).
+
+## Instalando o R e RStudio no Windows
+
+Podemos instalar o R nesse [link](https://cran.r-project.org/bin/windows/base/) e o RStudio [nesse](https://rstudio.com/products/rstudio/download/#download) respectivamente
+
+## Instalando o R e o RStudio no Linux Mint
+
+Essa etapa é um pouco mais complicada, no primeiro passo iremos acessar o site oficial do [R](https://cran.r-project.org/) em seguida escolhemos a opção *"Download R for Linux"*, depois selecionamos a opção *"ubuntu/"* e copiamos a chave do repositório para isso clicamos na opção "full README", logo iremos copiar o apt-key, no nosso caso copiaremos a chave **"E298A3A825C0D65DFD57CBB651716619E084DAB9"**, com a chave copiada é só acessar no meno iniciar o aplicativo *"Fontes de Aplicativos"*, em seguida basta clicar na **Chaves de Autenticação** e apertar em baixar, dai é só colar a chave copiada e apertar em OK, após isso aceite a atualização do repositório. Precisamos adicionar o repositório Para isso iremos acessar novamente a página do R e vamos copiar o comando\
+"deb <https://cloud.r-project.org/bin/linux/ubuntu> focal-cran40/", em seguida Adicionaremos esse repositório no aplicativo **Fontes de Aplicativos** e em Adicionar apertaremos em OK, logo adicionaremos o seguinte comando: *"sudo apt-get install r-base r-base-dev"* no terminal (Ctrl + Alt + T) e confirmamos a instalação digitando S e apertando Enter.
+
+Para abrir o R no terminal é só digitar o R maiúsculo e apertar Enter. \]
+
+Para instalar o RStudio é só acessar o link do [RStudio](https://rstudio.com/) ir na opção downloads e escolher a versão Ubuntu18/Debian 10, após baixado é só instalar normalmente como faria no Windows apertando o botão Instalar Pacotes.
