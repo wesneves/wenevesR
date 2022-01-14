@@ -117,30 +117,30 @@ params:
     title: Interesses
   social:
     list:
+      - icon: fas fa-envelope
+        title: Email
+        url: 'wesley.neves@ufpe.br'
+      - icon: fab fa-github
+        title: GitHub
+        url: 'https://github.com/wesneves'
       - icon: fab fa-facebook-square
         title: Facebook
         url: 'https://www.facebook.com/wesley.neves.923171'
       - icon: fab fa-linkedin-in
         title: LinkedIn
         url: 'https://www.linkedin.com/in/wesley-neves-750052206/'
-      - icon: fab fa-stack-overflow
-        title: StackOverflow
-        url: '#'
-      - icon: fab fa-github
-        title: GitHub
-        url: 'https://github.com/wesneves'
-      - icon: fab fa-twitter
-        title: Twitter
-        url: '#'
+      - icon: fab fa-researchgate
+        title: ResearchGate
+        url: 'https://www.researchgate.net/profile/Wesley-Neves-2'
+      - icon: fab fa-instagram
+        title: Instagram
+        url: 'https://www.instagram.com/leli.neves/'
       - icon: fab fa-orcid
         title: Orcid
         url: '#'
       - icon: ai ai-google-scholar
         title: Google Scholar
         url: '#'
-      - icon: fab fa-researchgate
-        title: ResearchGate
-        url: 'https://www.researchgate.net/profile/Wesley-Neves-2'
     title: Links
   theme:
     mainTheme: light
