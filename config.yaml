@@ -135,9 +135,6 @@ params:
       - icon: fab fa-instagram
         title: Instagram
         url: 'https://www.instagram.com/leli.neves/'
-      - icon: fa-lattes
-        title: Lattes
-        url: 'http://lattes.cnpq.br/5065264431716233'
       - icon: fab fa-orcid
         title: Orcid
         url: '#'
