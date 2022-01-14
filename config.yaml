@@ -119,7 +119,7 @@ params:
     list:
       - icon: fas fa-envelope
         title: Email
-        url: 'wesley.neves@ufpe.br'
+        url: 'mailto:wesley.neves@ufpe.br'
       - icon: fab fa-github
         title: GitHub
         url: 'https://github.com/wesneves'
