@@ -117,6 +117,9 @@ params:
     title: Interesses
   social:
     list:
+      - icon: fab fa-facebook-square
+        title: Facebook
+        url: 'https://www.facebook.com/wesley.neves.923171'
       - icon: fab fa-linkedin-in
         title: LinkedIn
         url: 'https://www.linkedin.com/in/wesley-neves-750052206/'
