@@ -1,0 +1,36 @@
+---
+title: "GitHub no R: Sincronizando repositórios no RStudio"
+author: "Wesley Neves"
+date: "2022-01-17"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="instalando-o-git" class="section level1">
+<h1>Instalando o Git:</h1>
+<div id="linux" class="section level2">
+<h2>LINUX</h2>
+<p>Para distros <strong>ubuntu</strong> e <strong>debian</strong> abra o terminal e digite o comando: <strong>sudo apt-get install git</strong>.</p>
+<p>nas distros <strong>fedora</strong> ou <strong>RedHat</strong> digite: <strong>sudo yum install git.</strong></p>
+</div>
+<div id="windows" class="section level2">
+<h2>WINDOWS</h2>
+<p>Basta instalar o Git pelo <a href="https://gitforwindows.org/">site</a> apertando no download.</p>
+</div>
+</div>
+<div id="github" class="section level1">
+<h1>GitHub</h1>
+<p>É necessário criar uma conta na plataforma <a href="https://github.com/">GitHub</a>, após a criar a conta podemos criar um novo repositório (Podemos adicionar algumas informações sobre o nosso projeto) no GitHub e devemos selecionar a opção <strong>Add a README file</strong>, em seguida, faz-se necessário copiar o código HTTPS do resopitório para a sincronização no RStudio, para isso basta clicar no botão verde Code e copiar o endereço em HTTPS.</p>
+<p><img src="content/blog/github.png" title="HTTPS" /></p>
+<div id="no-rstudio" class="section level2">
+<h2>No RStudio</h2>
+<p>O próximo passo é ir ao RStudio e criar um novo Projeto: <strong>File- New Project - Version Control - Git</strong>, em seguida iremos colar o código HTTPS copiado do nosso repositório GitHub na parte <strong>Repository URL:<br />
+OBS&gt;</strong> O nome do nosso repositório aparece automaticamente assim que colamos o código no Git do RStudio, escolhemos o nosso subrepositório <em>(uma pasta que devemos criar onde será estabelecida a sincronização das pastas na memória do computador com o repositório no GitHUb)</em>.</p>
+</div>
+<div id="rproj" class="section level2">
+<h2>.Rproj</h2>
+<p>É um arquivo criado na após a etapa acima e consiste no arquivo central que carrega todos os códigos que foram utilizados na sessão.</p>
+</div>
+</div>

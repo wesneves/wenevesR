@@ -1,0 +1,34 @@
+---
+title: "GitHub no R: Sincronizando repositórios no RStudio"
+author: "Wesley Neves"
+date: "2022-01-17"
+output: html_document
+---
+
+
+# Instalando o Git:
+
+## LINUX
+
+Para distros **ubuntu** e **debian** abra o terminal e digite o comando: **sudo apt-get install git**.
+
+nas distros **fedora** ou **RedHat** digite: **sudo yum install git.**
+
+## WINDOWS
+
+Basta instalar o Git pelo [site](https://gitforwindows.org/) apertando no download.
+
+# GitHub
+
+É necessário criar uma conta na plataforma [GitHub](https://github.com/), após a criar a conta podemos criar um novo repositório (Podemos adicionar algumas informações sobre o nosso projeto) no GitHub e devemos selecionar a opção **Add a README file**, em seguida, faz-se necessário copiar o código HTTPS do resopitório para a sincronização no RStudio, para isso basta clicar no botão verde Code e copiar o endereço em HTTPS.
+
+![](content/blog/github.png "HTTPS")
+
+## No RStudio
+
+O próximo passo é ir ao RStudio e criar um novo Projeto: **File- New Project - Version Control - Git**, em seguida iremos colar o código HTTPS copiado do nosso repositório GitHub na parte **Repository URL: \
+OBS>** O nome do nosso repositório aparece automaticamente assim que colamos o código no Git do RStudio, escolhemos o nosso subrepositório *(uma pasta que devemos criar onde será estabelecida a sincronização das pastas na memória do computador com o repositório no GitHUb)*.
+
+## .Rproj
+
+É um arquivo criado na após a etapa acima e consiste no arquivo central que carrega todos os códigos que foram utilizados na sessão.
