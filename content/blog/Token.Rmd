@@ -1,0 +1,28 @@
+---
+title: "Token do GitHub para o RStudio"
+author: "Wesley Neves"
+date: "2022-01-17"
+output: html_document
+---
+
+# O que é e para que preciso do TOKEN?
+
+Precisamos criar um token, pois quando interagimos com um servidor Git remoto (como o GitHub, por exemplo) é necessário incluir credenciais na solicitação, isso acontece na hora que em que estamos utilizando o RStudio e precisamos sincronizar/enviar as alterações feitas no RStudio para o GitHUb, para isso será necessário utilizar o comando **commit** e o comando **push** na aba **git** do RStudio. Tal credenciamento prova que somos um usuário específico do GitHub que tem permissão para fazer o que estivermos pedindo, já que quaisquer alterações realizadas no nosso repositório é mostrado no GitHub pela credencial do usuário.
+
+A senha que você nós utilizamos para fazer login no site do GitHub *NÃO* é uma credencial aceitável ao conversar com o GitHub como um servidor Git, graças a uma atulização de segurança na plataforma. Por isso é necessário a criação de um TOKEN para realizar a sincronização entre o RStudio e o GitHub.
+
+# Criando o TOKEN
+
+Para configurarmos o token será necessário baixar os seguintes pacotes: `install.packages(c("gh", "usethis", "gitcreds", "credentials"))`
+
+`usethis::create_github_token()` , essa linha de comando configura o token, após executar esse comando devemos copiar o token gerado, para tal faz-se necessário etabelecer um prazo de validade para o token.
+
+Para o próximo passo basta executar o comando `gitcreds::gitcreds_set()` para criar as credenciais, após isso devemos colar o token configurado na Página do GitHUb.
+
+Seguindo esses passos a configuração do TOKEN está completa.
+
+## Verificar se deu tudo certo
+
+Para verificarmos o nosso TOKEN é necessário utilizar o comando: `gh::gh_whoami()`
+
+O seguinte comando revela o nosso token: `gitcreds::gitcreds_get()$password`
