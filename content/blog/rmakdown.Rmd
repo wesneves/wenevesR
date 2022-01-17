@@ -15,7 +15,7 @@ Para facilitar a aprendizagem dessa sintaxe de formatação da escrita nós pode
 
 Com essa função ativa, o autor não precisará gravar linhas de comandos para adicionar, títulos, tópicos, letras em negrito, adicionar código, imagens, links, citações etc. Todas essas funcionalidades ficam disponíveis no painel da aba rmakdown.
 
-Após escrever os comandos necessário para o nosso relatório, basta visualizar o relatório no formato desejado, que no nosso caso seria o HTML, para tal, será necessário antes salvar o arquivo e só então apertar o botão **knit** para a visualizar o resultado através da aba **viwer** no quadrante onde ficam os pacotes e arquivos do RStudio.
+Após escrever os comandos necessário para o nosso relatório, basta visualizar o relatório no formato desejado, que no nosso caso seria o HTML, para tal, será necessário antes salvar o arquivo e só então apertar o botão **knit** para visualizar o resultado através da aba **viwer** no quadrante onde ficam os pacotes e arquivos do RStudio.
 
 Um conselho seria consultar todas as funcionalidades disponibilizadas no cabeçalho da aba e gravar os atalhos no teclado para agilizar nossa escrita.
 
