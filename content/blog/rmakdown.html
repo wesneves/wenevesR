@@ -1,0 +1,45 @@
+---
+title: "Rmarkdown"
+author: "Wesley Neves"
+date: "2022-01-17"
+categories: ["R"]
+tags: ["R Markdown", "Cheat Sheet ", "HTML"]
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="r-markdown" class="section level1">
+<h1>R Markdown</h1>
+<p>Inicialmente é necessário baixar o pacote rmarkdown no RStudio, em seguida podemos criar um novo arquivo rmarkdown em <strong>file - new file - R Markdown.</strong></p>
+<p>Para facilitar a aprendizagem dessa sintaxe de formatação da escrita nós podemos utilizar o botão <strong>Switch to sourve editor</strong> (um botão que parece um compasso que se localiza abaixo do botão de maximizar da janela onde o arquivo rmarkdown será aberto).</p>
+<p>Com essa função ativa, o autor não precisará gravar linhas de comandos para adicionar, títulos, tópicos, letras em negrito, adicionar código, imagens, links, citações etc. Todas essas funcionalidades ficam disponíveis no painel da aba rmakdown.</p>
+<p>Após escrever os comandos necessário para o nosso relatório, basta visualizar o relatório no formato desejado, que no nosso caso seria o HTML, para tal, será necessário antes salvar o arquivo e só então apertar o botão <strong>knit</strong> que seŕa disponibilizada a visualização através da aba <strong>viwer</strong> no quadrante onde ficam os pacotes e arquivos do RStudio.</p>
+<p>Um conselho seria consultar todas as funcionalidades disponibilizadas no cabeçalho da aba e gravar os atalhos no teclado para agilizar nossa escrita.</p>
+</div>
+<div id="materiais-para-consulta-r-markdown" class="section level1">
+<h1>Materiais para Consulta R-Markdown</h1>
+<p><a href="https://bookdown.org/yihui/rmarkdown/">Livro Guia Definitivo de RMARKDOWN</a></p>
+<p><a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Folhas de Dicas Rmarkdown</a></p>
+<p><a href="https://rmarkdown.rstudio.com/lesson-1.html">Livro Rmarkdown</a></p>
+<div id="documento-gerado-automaticamente-após-criar-um-arquivo-r-markdown-no-rstudio" class="section level2">
+<h2>Documento gerado automaticamente após criar um arquivo R markdown no RStudio</h2>
+<p>Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+</div>
+<div id="including-plots" class="section level2">
+<h2>Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="/blog/rmakdown_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+</div>
+</div>

@@ -1,0 +1,48 @@
+---
+title: "Rmarkdown"
+author: "Wesley Neves"
+date: "2022-01-17"
+categories: ["R"]
+tags: ["R Markdown", "Cheat Sheet ", "HTML"]
+output: html_document
+---
+
+# R Markdown
+
+Inicialmente é necessário baixar o pacote rmarkdown no RStudio, em seguida podemos criar um novo arquivo rmarkdown em **file - new file - R Markdown.**
+
+Para facilitar a aprendizagem dessa sintaxe de formatação da escrita nós podemos utilizar o botão **Switch to sourve editor** (um botão que parece um compasso que se localiza abaixo do botão de maximizar da janela onde o arquivo rmarkdown será aberto).
+
+Com essa função ativa, o autor não precisará gravar linhas de comandos para adicionar, títulos, tópicos, letras em negrito, adicionar código, imagens, links, citações etc. Todas essas funcionalidades ficam disponíveis no painel da aba rmakdown.
+
+Após escrever os comandos necessário para o nosso relatório, basta visualizar o relatório no formato desejado, que no nosso caso seria o HTML, para tal, será necessário antes salvar o arquivo e só então apertar o botão **knit** que seŕa disponibilizada a visualização através da aba **viwer** no quadrante onde ficam os pacotes e arquivos do RStudio.
+
+Um conselho seria consultar todas as funcionalidades disponibilizadas no cabeçalho da aba e gravar os atalhos no teclado para agilizar nossa escrita.
+
+# Materiais para Consulta R-Markdown
+
+[Livro Guia Definitivo de RMARKDOWN](https://bookdown.org/yihui/rmarkdown/)
+
+[Folhas de Dicas Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+[Livro Rmarkdown](https://rmarkdown.rstudio.com/lesson-1.html)
+
+## Documento gerado automaticamente após criar um arquivo R markdown no RStudio
+
+Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
