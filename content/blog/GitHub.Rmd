@@ -23,7 +23,7 @@ Basta instalar o Git pelo [site](https://gitforwindows.org/) apertando no downlo
 
 É necessário criar uma conta na plataforma [GitHub](https://github.com/), após a criar a conta podemos criar um novo repositório (Podemos adicionar algumas informações sobre o nosso projeto) no GitHub e devemos selecionar a opção **Add a README file**, em seguida, faz-se necessário copiar o código HTTPS do resopitório para a sincronização no RStudio, para isso basta clicar no botão verde Code e copiar o endereço em HTTPS.
 
-!\[GitHub - HTTPS\](![](/blog/GitHub_files/github.png "GitHub - HTTP"))
+![](/blog/GitHub_files/github.png "GitHub - HTTP")
 
 ## No RStudio
 
