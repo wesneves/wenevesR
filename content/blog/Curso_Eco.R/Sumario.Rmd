@@ -80,22 +80,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Módulo 2
 
-    1. Delineamento de Experimentos
-        i. Pergunta Central do Estudo
-        ii. Experimentos Manipulativos
-        iii. Experimentos Naturais
-        iv. Replicação
-        v. Independência Amostral
-        vi. Questões sobre Delineamento Amostral
-        vii. Variáveis Categóricas x Variáveis Contínuas
-        viii. Variáveis Dependentes e Independentes
-    2. Curadoria dos Dados
+    1. Curadoria dos Dados
         i. Organizando os Dados Brutos
         ii. Sumário dos Dados
         iii. Transformação dos Dados
         iv. Padronização dos Dados
         v. Matriz de Dados Ecológicos
-    3. Introdução à Ecologia Matemática
+    2. Introdução à Ecologia Matemática
         i. Ecologia Teórica
         ii. Ecologia Quantitativa
         iii. Modelagem Ecológica
