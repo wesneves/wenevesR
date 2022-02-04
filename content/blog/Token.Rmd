@@ -31,7 +31,9 @@ A senha que você nós utilizamos para fazer login no site do GitHub *NÃO* é u
 
 -   Defina seu token no RStudio com o pacote credentials:
 
-`credenciais :: set_github_pat(" seuTOKEN ")`
+`library(credenciais)`
+
+`set_github_pat(" seuTOKEN ")`
 
 -   Reinicie o R!
 
