@@ -1,7 +1,7 @@
 ---
 title: "Token do GitHub para o RStudio"
 author: "Wesley Neves"
-date: "2022-01-17"
+date: "2022-02-04"
 categories: ["GitHub"]
 tags: ["Token", "usethis()"]
 output: html_document
@@ -12,18 +12,37 @@ output: html_document
 
 <div id="o-que-é-e-para-que-preciso-do-token" class="section level1">
 <h1>O que é e para que preciso do TOKEN?</h1>
-<p>Precisamos criar um token, pois quando interagimos com um servidor Git remoto (como o GitHub, por exemplo) é necessário incluir credenciais na solicitação, isso acontece na hora que em que estamos utilizando o RStudio e precisamos sincronizar/enviar as alterações feitas no RStudio para o GitHUb, para isso será necessário utilizar o comando <strong>commit</strong> e o comando <strong>push</strong> na aba <strong>git</strong> do RStudio. Tal credenciamento prova que somos um usuário específico do GitHub que tem permissão para fazer o que estivermos pedindo, já que quaisquer alterações realizadas no nosso repositório é mostrado no GitHub pela credencial do usuário.</p>
+<p>Precisamos criar um token, pois quando interagimos com um servidor Git remoto (como o GitHub, por exemplo) é necessário incluir credenciais na solicitação, isso acontece na hora que em que estamos utilizando o RStudio e precisamos sincronizar/enviar as alterações feitas no RStudio para o GitHub, para isso será necessário utilizar o comando <strong>commit</strong> e o comando <strong>push</strong> na aba <strong>git</strong> do RStudio. Tal credenciamento prova que somos um usuário específico do GitHub que tem permissão para fazer o que estivermos pedindo, já que quaisquer alterações realizadas no nosso repositório é mostrado no GitHub pela credencial do usuário.</p>
 <p>A senha que você nós utilizamos para fazer login no site do GitHub <em>NÃO</em> é uma credencial aceitável ao conversar com o GitHub como um servidor Git, graças a uma atulização de segurança na plataforma. Por isso é necessário a criação de um TOKEN para realizar a sincronização entre o RStudio e o GitHub.</p>
 </div>
-<div id="criando-o-token" class="section level1">
-<h1>Criando o TOKEN</h1>
-<p>Para configurarmos o token será necessário baixar os seguintes pacotes: <code>install.packages(c("gh", "usethis", "gitcreds", "credentials"))</code></p>
-<p><code>usethis::create_github_token()</code> , essa linha de comando configura o token, após executar esse comando devemos copiar o token gerado, para tal faz-se necessário etabelecer um prazo de validade para o token.</p>
-<p>Para o próximo passo basta executar o comando <code>gitcreds::gitcreds_set()</code> para criar as credenciais, após isso devemos colar o token configurado na Página do GitHUb.</p>
-<p>Seguindo esses passos a configuração do TOKEN está completa.</p>
-<div id="verificar-se-deu-tudo-certo" class="section level2">
-<h2>Verificar se deu tudo certo</h2>
+<div id="criando-o-token-no-rstudio" class="section level1">
+<h1>Criando o TOKEN no RStudio</h1>
+<ul>
+<li>Definir seu nome de usuário GitHub e o seu email vinculado</li>
+</ul>
+<p><code>usethis :: use_git_config( user.name  =  " SeuNome " , user.email  =  " seu@email.com " )</code></p>
+<ul>
+<li>Pacotes necessários para criar o Token:</li>
+</ul>
+<p><code>install.packages(c("gh", "usethis", "gitcreds", "credentials"))</code></p>
+<ul>
+<li>Crie um token de acesso pessoal para a autenticação</li>
+</ul>
+<p><code>usethis::create_github_token()</code></p>
+<blockquote>
+<p>Essa linha de comando configura o seu token abrindo uma janela no navegador onde irá pedir a confirmação da sunha senha no GitHub, após executar esse comando devemos copiar o token gerado, para tal faz-se necessário estabelecer um prazo de validade para o token e algumas permissões adicionais.</p>
+</blockquote>
+<ul>
+<li>Defina seu token no RStudio com o pacote credentials:</li>
+</ul>
+<p><code>library(credenciais)</code></p>
+<p><code>set_github_pat(" seuTOKEN ")</code></p>
+<ul>
+<li><p>Reinicie o R!</p></li>
+<li><p>Verifique as Configurações:</p></li>
+</ul>
+<p><code>usethis :: git_sitrep()</code></p>
+<p>Com esse comando iremos notar algumas informações sobre nosso perfil, além disso o relatório feito deve conter alguma informação sobre o token de acesso pessoal.</p>
 <p>Para verificarmos o nosso TOKEN é necessário utilizar o comando: <code>gh::gh_whoami()</code></p>
 <p>O seguinte comando revela o nosso token: <code>gitcreds::gitcreds_get()$password</code></p>
-</div>
 </div>
