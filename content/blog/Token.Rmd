@@ -11,7 +11,7 @@ output: html_document
 
 Precisamos criar um token, pois quando interagimos com um servidor Git remoto (como o GitHub, por exemplo) é necessário incluir credenciais na solicitação, isso acontece na hora que em que estamos utilizando o RStudio e precisamos sincronizar/enviar as alterações feitas no RStudio para o GitHub, para isso será necessário utilizar o comando **commit** e o comando **push** na aba **git** do RStudio. Tal credenciamento prova que somos um usuário específico do GitHub que tem permissão para fazer o que estivermos pedindo, já que quaisquer alterações realizadas no nosso repositório é mostrado no GitHub pela credencial do usuário.
 
-A senha que você nós utilizamos para fazer login no site do GitHub *NÃO* é uma credencial aceitável ao conversar com o GitHub como um servidor Git, graças a uma atulização de segurança na plataforma. Por isso é necessário a criação de um TOKEN para realizar a sincronização entre o RStudio e o GitHub.
+A senha que nós utilizamos para fazer login no site do GitHub *NÃO* é uma credencial aceitável ao conversar com o GitHub como um servidor Git, graças a uma atulização de segurança na plataforma. Por isso é necessário a criação de um TOKEN para realizar a sincronização entre o RStudio e o GitHub.
 
 # Criando o TOKEN no RStudio
 
@@ -27,7 +27,7 @@ A senha que você nós utilizamos para fazer login no site do GitHub *NÃO* é u
 
 `usethis::create_github_token()`
 
-> Essa linha de comando configura o seu token abrindo uma janela no navegador onde irá pedir a confirmação da sunha senha no GitHub, após executar esse comando devemos copiar o token gerado, para tal faz-se necessário estabelecer um prazo de validade para o token e algumas permissões adicionais.
+> Essa linha de comando configura o seu token abrindo uma janela no navegador onde irá pedir a confirmação da senha no GitHub, após executar esse comando devemos copiar o token gerado, para tal faz-se necessário estabelecer um prazo de validade para o token e algumas permissões adicionais.
 
 -   Defina seu token no RStudio com o pacote credentials:
 
