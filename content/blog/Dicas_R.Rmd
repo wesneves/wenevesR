@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Dicas para Melhorar a Sintaxe no R.
 
-Para facilitar nossa compreensão sobre as linhas de comando desenvolvidas no R é aconselhável realizar essas configurações no RStudio que se referem ao diagnóstico do código escrito:
+Para facilitar a visualização das linhas de comando desenvolvidas no programa RStudio é aconselhável realizar essas modificações no programa que se referem ao diagnóstico do código escrito:
 
 *Tools \> Global options \> Code \> Editing. Marque todas as opções em General;*
 
