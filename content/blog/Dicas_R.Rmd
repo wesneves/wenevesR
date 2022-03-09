@@ -11,7 +11,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Dicas para melhorar a sintaxe no R.
+# Dicas para Melhorar a Sintaxe no R.
 
 Para facilitar nossa compreensão sobre as linhas de comando desenvolvidas no R é aconselhável realizar essas configurações no RStudio que se referem ao diagnóstico do código escrito:
 
