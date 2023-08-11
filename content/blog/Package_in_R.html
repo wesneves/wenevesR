@@ -1,0 +1,88 @@
+---
+title: "Faça seu pacote no RStudio do Zero"
+author: "Wesley Neves"
+date: "2023-08-11"
+categories: ["R"]
+tags: ["RStudio", "Pacotes", "devtools", "roxygen2"]
+output: html_document
+---
+
+
+
+<div id="procedimentos-iniciais" class="section level1">
+<h1>Procedimentos Iniciais</h1>
+<p>Este tutorial visa lhe ajudar a criar um pacote no R com os minimos procedimentos necessários para tal. Para uma abordagem completa eu lhe recomendo o livro <a href="https://r-pkgs.org">site</a> do autor Hadley Wickham e Jennifer Bryan.</p>
+<div id="etapa-1-pacotes-necessários" class="section level2">
+<h2>Etapa 1: pacotes necessários:</h2>
+<p>Basicamente precisamos de apenas dois pacotes que são <code>devtools</code> e <code>roxygen2</code>, portanto é necessário baixar esses dois pacotes antes de criarmos o nosso (OBS: no LINUX o pacote <code>devtools</code> possuí várias dependências, consulte o material do pacote e baixe essas dependências antes de tentar instalá-lo, já no Windows, a interface consegue instalar quase todas as dependências, mas mesmo assim, fique atento as dependências do pacote.)</p>
+<pre class="r"><code>install.packages(&#39;devtools&#39;)
+library(devtools)
+devtools::install_github(&quot;klutometis/roxygen&quot;)
+library(roxygen2)</code></pre>
+</div>
+<div id="etapa-2-criando-o-diretório-do-pacote" class="section level2">
+<h2>Etapa 2: criando o diretório do pacote:</h2>
+<p>É necessário criar um diretório de trabalho para anexar todas as informações do pacote que nesse exemplo eu chamo de CháRev</p>
+<pre class="r"><code>setwd(&quot;cole aqui seu diretório de trabalho&quot;)
+create(&quot;CháRev&quot;)</code></pre>
+<p>Se você olhar no diretório criado perceberá que existe um Documento chamado <code>DESCRIPTION</code> esse documento é importante e nele contém todas as informações sobre o pacote como o nome do pabote, a versão, o título do pacote os autores, se o pacote possui alguma dependência, licença e uma breve descrição do que o pacote faz. No nosso diretório existe uma pasta chamada R, nessa pasta você deve colocar todas as suas rotinas em script (.R) (Claro que eu devo assumir que você têm todas as rotinas/funções prontas, afinal, um pacote requer funções prévias para funcionar).</p>
+</div>
+<div id="etapa-3-adicionando-funções" class="section level2">
+<h2>Etapa 3: Adicionando funções:</h2>
+<p>Essa é a etapa principal na criação de um pacote, e devemos prestar bastante atenção nessa etapa, pois os arquivos que serão adicionados a essa pasta devem conter além da instrução da rotina, algumas informações que serão necessárias para serem anexadas em um documento .Rd. Nesse exemplo eu irei adicionar uma função chamada chárev(), que irá simular um resultado de um chá de revelação. Para criar tal função, antes é necessário primeiro adicionar o título dessa função com os seguintes argumentos:</p>
+<pre class="r"><code>#&#39; chárev(result) Função simulando um possível chá de revelação para determinar o sexo e o nome da criança
+#&#39; 
+#&#39; Esta função mostra três resultados possíveis, se o objeto result possuir a palavra &quot;azul&quot; o export da função mostrará um print com a informação de que a criança é do sexo masculino e se chamará Noar, se for &quot;rosa&quot; a informação resultará em uma menina que se chamará Elise, se quaisquer outras cores forem anexadas no objeto o resultado será indeterminado tanto para sexo como para nomes.
+#&#39; 
+#&#39; @param result Um objeto de classe &quot;character&quot; contendo o nome em letra minúscula de alguma cor
+#&#39; @return o resultado do chá de revelação, informando se é menino, menina ou se não foi possível determinar o sexo da criança
+#&#39; @export
+chárev &lt;- function(result) {
+    if (&quot;azul&quot; %in% result) {
+        print(&quot;É um menino e se chamará Noah&quot;)
+    } else if (&quot;rosa&quot; %in% result) {
+        print(&quot;É uma menina e se chamará Elise&quot;)
+    } else {
+        print(&quot;Não foi possível determinar o sexo ou o nome.&quot;)
+    }
+}</code></pre>
+<p>Na pasta R eu posso criar várias funções em arquivos .R separados, nesse exemplo eu apenas vou adicionar um função.</p>
+<p>Aqui, o tag <code>@export</code> é uma sintaxe tag do pacote <code>roxygen2</code>, essa sintaxe é importante e permite que a função que acabamos de criar chamada chárev() seja adicionada ao NAMESPACE do pacote, logo a função será exposta para os usuários utilizarem.</p>
+</div>
+<div id="etapa-4-função-document" class="section level2">
+<h2>Etapa 4: função document()</h2>
+<p>Depois de concluir toda a descrição e estruturação das suas funções na página R é necessário rodar a seguinte função</p>
+<pre class="r"><code>devtools::document()</code></pre>
+<p>Essa função irá gerar o chárev.Rd arquivo na pasta <code>man</code>, perceba que o pacote <code>roxygen2</code>faz isso automativamente. É importante perceber que quando o pacote estiver finalizado e você perceber que é necessário adicionar uma nova função, lembre-se que cada alteração feita no documento principal da pasta R é necessário rodar a função <code>devtools::document()</code> para gerar novamente os arquivos .Rd</p>
+<p>##Etapa 5: Dependências Se seu pacote precisa utilizar dependências NUNCA utilize a função library dentro da estruturação do seu código, pois ao utilizar <code>library()</code> em uma função R pode resultar numa falha na disponibilidade de algumas funções básicas para estruturar seu pacote, da mesma forma que argumentamos sobre a função <code>library()</code>você também deve evitar utilizar a função <code>require()</code>.</p>
+<p>Então o que eu sugiro é que você adicione a informação de dependência logo no arquivo DESCRIPTION do seu pacote é só adicionar por exemplo o comando:</p>
+<pre class="r"><code>Imports:
+  ggplot2</code></pre>
+<p>Se seu pacote precisa utilizar funções simples como as funções do pacote <code>dplyr</code>por exemplo, opte por utilizar o operador <code>::</code></p>
+</div>
+<div id="etapa-6-instalar-o-pacote" class="section level2">
+<h2>Etapa 6: Instalar o pacote</h2>
+<p>Podemos utilizar a função <code>devtools::install()</code> para instalar seu pacote R na biblioteca do sistema R, sendo assim você pode carregar seu pacote com</p>
+<pre class="r"><code>library(CháRev)</code></pre>
+</div>
+<div id="etapa-7-adicionando-seu-pacote-ao-github" class="section level2">
+<h2>Etapa 7: Adicionando seu Pacote ao GitHub</h2>
+<p>O primeiro passo é declarar para o Git quem é você, informando seu nomee e-mail associoado a determinada conta Git, podemos fazer isso pelo simples comando no <code>terminal</code>do RStudio:</p>
+<pre class="r"><code>git config –global user.name &#39;Seu Nome&#39;
+git config –global user.email &#39;Seu E-Mail&#39;</code></pre>
+<p>Lembre-se que se você for copiar e colar essas linhas de comando no <code>terminal</code>, lembre de utilizar <code>Ctrl + Shift + V</code> para colar e para copiar qualquer coisa no terminal você dever utilizar <code>Ctrl + Shift + c</code></p>
+<p>Para credenciamento Git, você deve fazer um token antes de realizar os comandos commit e push ou pull no RStudio, para criar um TOKEN no RStudio digite o seguinte comando no <code>console</code></p>
+<pre class="r"><code>ushethis::create_githubtoken()</code></pre>
+<p>Atenção: Clique em “Generate token” e copie o código do token gerado (ao fechar a página não será possível visualizá-lo novamente).</p>
+<p>Feito isso vá novamente para o <code>terminal</code> no RStudio e digite o seguinte comando:</p>
+<pre class="r"><code>git add -A
+git commit -m &quot;Meu primeiro Commit no meu Pacote&quot;</code></pre>
+<p>O comando “git add -A” seleciona todos os objetos na aba git no RStudio (nesse momento, provavelmente ainda não aparecerá essa aba, já que você ainda não reiniciou o R, na próxima vez que você abrir o repositório irá aparecer essa aba, e nela observamos que quaisquer modificações feita e salva no pacote será mostrada nessa aba, com a função “git add -A” nós iremos selecionar todas essas modificações para posteriormente comentar essas modificações e enviar para o repositório GitHub salvando todas as alterações tanto no computador como na núvem.</p>
+<p>O comando “git commit -m”Meu primeiro commit no meu Pacote” me permite comentar quaisquer mudanças ou alterações feita no meu repositório, perceba que eu posso colocar o que eu quiser entre as aspas.</p>
+<p>Após essa etapa eu devo criar meu repositório na minha conta do GitHub clicando em New, aqui é importante colocar no repositório o mesmo nome do pacote e uma breve descrição do pacote também.</p>
+<p>Depois que o seu repositório GitHub estiver finalizado você deve copiar o código do seu repositório e fornecer esse código para sincronização no RStudio, para isso vá no <code>terminal</code> e adicione o comando</p>
+<pre class="r"><code>git remote add origin https://github.com/username/reponame</code></pre>
+<p>Feito isso você pode escrever o comando “git push -u origin master” no <code>terminal</code>.</p>
+<p>É interessante adicionar é um README arquivo (ou um versão Markdown , README.md). Isso aparecerá bem em seu repositório GitHub, abaixo a lista de arquivos. Esse arquivo é um arquivo Rmarkdown simples onde você pode descrever com detalhes o seu pacote.</p>
+</div>
+</div>

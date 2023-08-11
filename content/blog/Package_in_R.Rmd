@@ -1,0 +1,135 @@
+---
+title: "Faça seu pacote no RStudio do Zero"
+author: "Wesley Neves"
+date: "2023-08-11"
+categories: ["R"]
+tags: ["RStudio", "Pacotes", "devtools", "roxygen2"]
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Procedimentos Iniciais
+
+Este tutorial visa lhe ajudar a criar um pacote no R com os minimos procedimentos necessários para tal. Para uma abordagem completa eu lhe recomendo o livro [site](https://r-pkgs.org) do autor Hadley Wickham e Jennifer Bryan.
+
+## Etapa 1: pacotes necessários:
+
+Basicamente precisamos de apenas dois pacotes que são `devtools` e `roxygen2`, portanto é necessário baixar esses dois pacotes antes de criarmos o nosso (OBS: no LINUX o pacote `devtools` possuí várias dependências, consulte o material do pacote e baixe essas dependências antes de tentar instalá-lo, já no Windows, a interface consegue instalar quase todas as dependências, mas mesmo assim, fique atento as dependências do pacote.)
+
+```{r, eval=FALSE}
+install.packages('devtools')
+library(devtools)
+devtools::install_github("klutometis/roxygen")
+library(roxygen2)
+```
+
+## Etapa 2: criando o diretório do pacote:
+
+É necessário criar um diretório de trabalho para anexar todas as informações do pacote que nesse exemplo eu chamo de CháRev
+
+```{r, eval=FALSE}
+setwd("cole aqui seu diretório de trabalho")
+create("CháRev")
+```
+
+Se você olhar no diretório criado perceberá que existe um Documento chamado `DESCRIPTION` esse documento é importante e nele contém todas as informações sobre o pacote como o nome do pabote, a versão, o título do pacote os autores, se o pacote possui alguma dependência, licença e uma breve descrição do que o pacote faz. No nosso diretório existe uma pasta chamada R, nessa pasta você deve colocar todas as suas rotinas em script (.R) (Claro que eu devo assumir que você têm todas as rotinas/funções prontas, afinal, um pacote requer funções prévias para funcionar).
+
+## Etapa 3: Adicionando funções:
+
+Essa é a etapa principal na criação de um pacote, e devemos prestar bastante atenção nessa etapa, pois os arquivos que serão adicionados a essa pasta devem conter além da instrução da rotina, algumas informações que serão necessárias para serem anexadas em um documento .Rd. Nesse exemplo eu irei adicionar uma função chamada chárev(), que irá simular um resultado de um chá de revelação. Para criar tal função, antes é necessário primeiro adicionar o título dessa função com os seguintes argumentos:
+
+```{r, eval=FALSE}
+#' chárev(result) Função simulando um possível chá de revelação para determinar o sexo e o nome da criança
+#' 
+#' Esta função mostra três resultados possíveis, se o objeto result possuir a palavra "azul" o export da função mostrará um print com a informação de que a criança é do sexo masculino e se chamará Noar, se for "rosa" a informação resultará em uma menina que se chamará Elise, se quaisquer outras cores forem anexadas no objeto o resultado será indeterminado tanto para sexo como para nomes.
+#' 
+#' @param result Um objeto de classe "character" contendo o nome em letra minúscula de alguma cor
+#' @return o resultado do chá de revelação, informando se é menino, menina ou se não foi possível determinar o sexo da criança
+#' @export
+chárev <- function(result) {
+    if ("azul" %in% result) {
+        print("É um menino e se chamará Noah")
+    } else if ("rosa" %in% result) {
+        print("É uma menina e se chamará Elise")
+    } else {
+        print("Não foi possível determinar o sexo ou o nome.")
+    }
+}
+```
+
+Na pasta R eu posso criar várias funções em arquivos .R separados, nesse exemplo eu apenas vou adicionar um função.
+
+Aqui, o tag `@export` é uma sintaxe tag do pacote `roxygen2`, essa sintaxe é importante e permite que a função que acabamos de criar chamada chárev() seja adicionada ao NAMESPACE do pacote, logo a função será exposta para os usuários utilizarem.
+
+## Etapa 4: função document()
+
+Depois de concluir toda a descrição e estruturação das suas funções na página R é necessário rodar a seguinte função
+
+```{r, eval=FALSE}
+devtools::document()
+```
+
+Essa função irá gerar o chárev.Rd arquivo na pasta `man`, perceba que o pacote `roxygen2`faz isso automativamente. É importante perceber que quando o pacote estiver finalizado e você perceber que é necessário adicionar uma nova função, lembre-se que cada alteração feita no documento principal da pasta R é necessário rodar a função `devtools::document()` para gerar novamente os arquivos .Rd
+
+##Etapa 5: Dependências Se seu pacote precisa utilizar dependências NUNCA utilize a função library dentro da estruturação do seu código, pois ao utilizar `library()` em uma função R pode resultar numa falha na disponibilidade de algumas funções básicas para estruturar seu pacote, da mesma forma que argumentamos sobre a função `library()`você também deve evitar utilizar a função `require()`.
+
+Então o que eu sugiro é que você adicione a informação de dependência logo no arquivo DESCRIPTION do seu pacote é só adicionar por exemplo o comando:
+
+```{r, eval=FALSE}
+Imports:
+  ggplot2
+```
+
+Se seu pacote precisa utilizar funções simples como as funções do pacote `dplyr`por exemplo, opte por utilizar o operador `::`
+
+## Etapa 6: Instalar o pacote
+
+Podemos utilizar a função `devtools::install()` para instalar seu pacote R na biblioteca do sistema R, sendo assim você pode carregar seu pacote com
+
+```{r, eval=FALSE}
+library(CháRev)
+```
+
+## Etapa 7: Adicionando seu Pacote ao GitHub
+
+O primeiro passo é declarar para o Git quem é você, informando seu nomee e-mail associoado a determinada conta Git, podemos fazer isso pelo simples comando no `terminal`do RStudio:
+
+```{r, eval=FALSE}
+git config –global user.name 'Seu Nome'
+git config –global user.email 'Seu E-Mail'
+```
+
+Lembre-se que se você for copiar e colar essas linhas de comando no `terminal`, lembre de utilizar `Ctrl + Shift + V` para colar e para copiar qualquer coisa no terminal você dever utilizar `Ctrl + Shift + c`
+
+Para credenciamento Git, você deve fazer um token antes de realizar os comandos commit e push ou pull no RStudio, para criar um TOKEN no RStudio digite o seguinte comando no `console`
+
+```{r, eval=FALSE}
+ushethis::create_githubtoken()
+```
+
+Atenção: Clique em "Generate token" e copie o código do token gerado (ao fechar a página não será possível visualizá-lo novamente).
+
+Feito isso vá novamente para o `terminal` no RStudio e digite o seguinte comando:
+
+```{r,eval=FALSE}
+git add -A
+git commit -m "Meu primeiro Commit no meu Pacote"
+```
+
+O comando "git add -A" seleciona todos os objetos na aba git no RStudio (nesse momento, provavelmente ainda não aparecerá essa aba, já que você ainda não reiniciou o R, na próxima vez que você abrir o repositório irá aparecer essa aba, e nela observamos que quaisquer modificações feita e salva no pacote será mostrada nessa aba, com a função "git add -A" nós iremos selecionar todas essas modificações para posteriormente comentar essas modificações e enviar para o repositório GitHub salvando todas as alterações tanto no computador como na núvem.
+
+O comando "git commit -m "Meu primeiro commit no meu Pacote" me permite comentar quaisquer mudanças ou alterações feita no meu repositório, perceba que eu posso colocar o que eu quiser entre as aspas.
+
+Após essa etapa eu devo criar meu repositório na minha conta do GitHub clicando em New, aqui é importante colocar no repositório o mesmo nome do pacote e uma breve descrição do pacote também.
+
+Depois que o seu repositório GitHub estiver finalizado você deve copiar o código do seu repositório e fornecer esse código para sincronização no RStudio, para isso vá no `terminal` e adicione o comando 
+```{r, eval=FALSE}
+git remote add origin https://github.com/username/reponame
+```
+
+Feito isso você pode escrever o comando "git push -u origin master" no `terminal`.
+
+É interessante adicionar é um README arquivo (ou um versão Markdown , README.md). Isso aparecerá bem em seu repositório GitHub, abaixo a lista de arquivos. Esse arquivo é um arquivo Rmarkdown simples onde você pode descrever com detalhes o seu pacote. 
