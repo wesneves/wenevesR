@@ -8,15 +8,32 @@ output: html_document
 
 
 
+<script>
+  window.addEventListener("scroll", function() {
+    var element = document.querySelector(".background-image");
+    var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+    var imageIndex = Math.floor(scrollPercentage * 4); // Define o número de imagens de fundo e muda a cada 25% de rolagem
+    var backgroundImageUrls = [
+      "url(/blog/Github_files/man-1205084_1280.jpg)",
+      "url(/blog/Github_files/github.png)",
+      "url(/blog/Github_files/logo.png)",
+      "url(/blog/Github_files/RStudio.png)"
+    ];
+    element.style.backgroundImage = backgroundImageUrls[imageIndex];
+  });
+</script>
+<div class="section" style="background-image: url(/blog/Github_files/man-1205084_1280.jpg); background-size: cover;">
+<h2 style="font-family: Arial, sans-serif; color: #2E8B57;">
+Sobre o Curso
+</h2>
+<p>atsrdtsrd
+sadasdsad
+asdasdsa</p>
+</div>
 <h2 style="font-family: Arial, sans-serif; color: #2E8B57;">
 Sobre o Curso
 </h2>
 <p><img src="/blog/Github_files/man-1205084_1280.jpg" /></p>
-<div style="text-align: center;">
-<div style="background-image: url(/blog/Github_files/man-1205084_1280.jpg); background-size: cover; display: inline-block; width: 300px; height: 200px; text-align: left; padding-left: 20px;">
-<pre><code>&lt;h2 style=&quot;font-family: Arial, sans-serif; color: #2E8B57; margin-top: 0;&quot;&gt;Sobre o Curso&lt;/h2&gt;</code></pre>
-</div>
-</div>
 <p>Este curso abrangente, intitulado “Introdução ao Programa R do Básico ao Avançado”, oferece uma jornada empolgante no mundo da análise de dados e programação em R. Desenvolvido com base em diversos minicursos ministrados em congressos e eventos relacionados à biologia, esta experiência de aprendizado é projetada para atender tanto àqueles que estão dando os primeiros passos no R quanto aos que desejam aprofundar suas habilidades em análise de dados.</p>
 <h2 style="font-family: Arial, sans-serif; color: #2E8B57;">
 Detalhes do Curso
