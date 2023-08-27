@@ -8,61 +8,6 @@ output: html_document
 
 
 
-&lt;!DOCTYPE html&gt;
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-Transição de Imagem de Fundo
-</title>
-<style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            transition: background-image 1s;
-        }
-        .section {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-<div class="section" style="background-image: url(/blog/Github_files/man-1205084_1280.jpg);">
-<pre><code>    &lt;h2&gt;Sobre o Curso&lt;/h2&gt;
-    &lt;!-- Conteúdo da seção --&gt;
-&lt;/div&gt;
-&lt;div class=&quot;section&quot; style=&quot;background-image: url(/blog/Github_files/github.png);&quot;&gt;
-    &lt;h2&gt;Detalhes do Curso&lt;/h2&gt;
-    &lt;!-- Conteúdo da seção --&gt;
-&lt;/div&gt;
-&lt;!-- Adicione mais seções conforme necessário --&gt;
-&lt;script&gt;
-    const sections = document.querySelectorAll(&#39;.section&#39;);
-    let currentSection = 0;
-    window.addEventListener(&#39;scroll&#39;, () =&gt; {
-        const scrollY = window.scrollY;
-        const newSection = Math.floor(scrollY / window.innerHeight);
-        if (newSection !== currentSection) {
-            currentSection = newSection;
-            const backgroundImage = sections[currentSection].style.backgroundImage;
-            document.body.style.backgroundImage = backgroundImage;
-        }
-    });
-&lt;/script&gt;</code></pre>
-</body>
-</html>
 <h2 style="font-family: Arial, sans-serif; color: #2E8B57;">
 Sobre o Curso
 </h2>
