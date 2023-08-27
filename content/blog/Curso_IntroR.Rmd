@@ -11,10 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Sobre o Curso
-
-::: {#figura align="center"}
 ![](/blog/Github_files/man-1205084_1280.jpg)
-:::
 
 Este curso abrangente, intitulado "Introdução ao Programa R do Básico ao Avançado", oferece uma jornada empolgante no mundo da análise de dados e programação em R. Desenvolvido com base em diversos minicursos ministrados em congressos e eventos relacionados à biologia, esta experiência de aprendizado é projetada para atender tanto àqueles que estão dando os primeiros passos no R quanto aos que desejam aprofundar suas habilidades em análise de dados.
 
