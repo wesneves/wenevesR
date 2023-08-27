@@ -10,28 +10,60 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<script>
-  window.addEventListener("scroll", function() {
-    var element = document.querySelector(".background-image");
-    var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-    var imageIndex = Math.floor(scrollPercentage * 4); // Define o número de imagens de fundo e muda a cada 25% de rolagem
-    var backgroundImageUrls = [
-      "url(/blog/Github_files/man-1205084_1280.jpg)",
-      "url(/blog/Github_files/github.png)",
-      "url(/blog/Github_files/logo.png)",
-      "url(/blog/Github_files/RStudio.png)"
-    ];
-    element.style.backgroundImage = backgroundImageUrls[imageIndex];
-  });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição de Imagem de Fundo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 1s;
+        }
+        .section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="section" style="background-image: url(/blog/Github_files/man-1205084_1280.jpg);">
+        <h2>Sobre o Curso</h2>
+        <!-- Conteúdo da seção -->
+    </div>
+    <div class="section" style="background-image: url(/blog/Github_files/github.png);">
+        <h2>Detalhes do Curso</h2>
+        <!-- Conteúdo da seção -->
+    </div>
+    <!-- Adicione mais seções conforme necessário -->
+    <script>
+        const sections = document.querySelectorAll('.section');
+        let currentSection = 0;
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const newSection = Math.floor(scrollY / window.innerHeight);
+            if (newSection !== currentSection) {
+                currentSection = newSection;
+                const backgroundImage = sections[currentSection].style.backgroundImage;
+                document.body.style.backgroundImage = backgroundImage;
+            }
+        });
+    </script>
+</body>
+</html>
 
-
-<div class="section" style="background-image: url(/blog/Github_files/man-1205084_1280.jpg); background-size: cover;">
-  <h2 style="font-family: Arial, sans-serif; color: #2E8B57;">Sobre o Curso</h2>
-  atsrdtsrd
-  sadasdsad
-  asdasdsa
-</div>
 
 
 <h2 style="font-family: Arial, sans-serif; color: #2E8B57;">Sobre o Curso</h2>
