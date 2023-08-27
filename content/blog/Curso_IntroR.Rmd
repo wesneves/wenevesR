@@ -1,0 +1,46 @@
+---
+title: "Curso Programa R (do básico ao avançado)]"
+date: "2023-08-27"
+categories: ["R"]
+tags: ["RStudio", "Programa R", "LINUX", "WINDOWS", "Curso"]
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sobre o Curso
+
+Este curso abrangente, intitulado "Introdução ao Programa R do Básico ao Avançado", oferece uma jornada empolgante no mundo da análise de dados e programação em R. Desenvolvido com base em diversos minicursos ministrados em congressos e eventos relacionados à biologia, esta experiência de aprendizado é projetada para atender tanto àqueles que estão dando os primeiros passos no R quanto aos que desejam aprofundar suas habilidades em análise de dados.
+
+## Detalhes do Curso
+
+<div style="text-align: center; margin-bottom: 20px;">
+  <a href="#" class="btn btn-primary">Carga Horária: 40 horas</a>
+  <a href="#" class="btn btn-success">Modo de Aula: Online</a>
+  <a href="#" class="btn btn-info">Emissão de Certificados</a>
+  <a href="#" class="btn btn-warning">Relatório ao Final do Curso</a>
+</div>
+
+## O que esperar do curso?
+
+-   Domínio dos Fundamentos: Começaremos do zero, garantindo que todos tenham uma base sólida nas principais estruturas de dados, operações e funções do R.
+
+-   Exploração de Dados: Aprenda a importar, explorar e visualizar dados de maneira eficaz, usando gráficos e estatísticas descritivas.
+
+-   Manipulação de Dados: Descubra como transformar, limpar e manipular seus dados para torná-los adequados para análise.
+
+-   Visualização de Dados: Domine a arte da visualização de dados, criando gráficos informativos e impressionantes.
+
+-   Programação em R: Explore a programação em R, incluindo a criação de funções personalizadas e a automação de tarefas.
+
+-   Projetos Práticos: Aplique suas habilidades em projetos do mundo real relacionados à biologia e à análise de dados.
+
+## Público alvo:
+
+-   Estudantes e pesquisadores de biologia e áreas afins.
+-   Profissionais que desejam aprimorar suas habilidades de análise de dados.
+-   Qualquer pessoa interessada em aprender a linguagem de programação R.
+
+Ao concluir este curso, você estará pronto para enfrentar desafios complexos de análise de dados com confiança e competência, além de se beneficiar de uma sólida compreensão da programação em R. Junte-se a nós nesta emocionante jornada de aprendizado e descubra como o R pode impulsionar suas habilidades em análise de dados e aprimorar sua carreira na área da biologia.
