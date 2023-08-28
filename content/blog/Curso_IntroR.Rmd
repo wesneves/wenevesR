@@ -2,7 +2,7 @@
 title: "Curso:Programa R (do básico ao avançado)"
 date: "2023-08-27"
 categories: ["R"]
-tags: ["RStudio", "Programa R", "LINUX", "WINDOWS", "Curso"]
+tags: ["RStudio", "Programa R", "LINUX", "WINDOWS", "Curso", "Pacotes"]
 output: html_document
 ---
 
@@ -18,8 +18,8 @@ Este curso abrangente, intitulado "Introdução ao Programa R do Básico ao Avan
 
 <h2 style="font-family: Arial, sans-serif; color: #2E8B57;">Detalhes do Curso</h2>
 
-carga horária 40 horas
-Modo de aula: online
+carga horária 60 horas
+Modo de aula: on-line
 Emissão de certificados
 relatório ao final do curso
 
@@ -36,7 +36,9 @@ relatório ao final do curso
 
 -   Programação em R: Explore a programação em R, incluindo a criação de funções personalizadas e a automação de tarefas.
 
--   Projetos Práticos: Aplique suas habilidades em projetos do mundo real relacionados à biologia e à análise de dados.
+-   Criando seu primeiro pacote: Desenvolva um pacote no RStudio com tudo que você aprendeu durante o curso.
+
+-   Avaliação: Aplique suas habilidades e desenvolva um pacote utilizando os recursos fornecidos durante o curso.
 
 <h2 style="font-family: Arial, sans-serif; color: #2E8B57;">Público alvo:</h2>
 
