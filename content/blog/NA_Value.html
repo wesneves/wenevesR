@@ -1,0 +1,536 @@
+---
+title: "Tratamento de Dados Ausentes"
+date: "2025-02-20"
+categories: ["R"]
+tags: ["Curadoria de Dados", "NA Value", "Machine Learning", "Random Forest"]
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: flatly
+---
+
+
+
+<div id="tratamento-de-valores-ausentesna-no-programa-r" class="section level1">
+<h1>Tratamento de Valores Ausentes(NA) no Programa R</h1>
+<p>A detecção e o tratamento de dados ausentes são componentes essenciais
+em qualquer processo de análise de dados, uma vez que a presença de
+valores faltantes pode distorcer os resultados de forma significativa. A
+qualidade e a integridade dos dados são fundamentais para garantir que
+as conclusões obtidas a partir das análises sejam confiáveis e
+representativas da realidade que se deseja investigar.</p>
+<div id="como-ocorrem-os-dados-ausentes" class="section level2">
+<h2>Como ocorrem os dados ausentes?</h2>
+<p>Dados ausentes podem ocorrer por diversos motivos, como erros de coleta,
+falhas técnicas, ou até mesmo por escolhas experimentais. Esses valores
+faltantes, se não tratados adequadamente, podem levar a viéses nas
+estimativas, perda de poder estatístico e redução da precisão dos
+modelos preditivos.</p>
+</div>
+<div id="como-resolver-esse-problema" class="section level2">
+<h2>Como resolver esse problema?</h2>
+<p>A forma como lidamos com os dados ausentes pode afetar diretamente a
+validade das análises subsequentes. Estratégias como remoção de dados
+ausentes, imputação ou modelagem específica para dados ausentes são
+frequentemente utilizadas para contornar esse problema. A escolha da
+abordagem depende do tipo de dados, do volume de valores ausentes e dos
+objetivos da pesquisa. O objetivo final é garantir que as conclusões
+extraídas não sejam enviesadas ou imprecisas devido à presença desses
+dados faltantes, proporcionando assim análises mais robustas e decisões
+mais informadas.</p>
+</div>
+</div>
+<div id="tratamento-dos-dados-no-r" class="section level1">
+<h1>Tratamento dos dados no R</h1>
+<div id="detecção-de-valores-ausentes" class="section level2">
+<h2>Detecção de valores ausentes:</h2>
+<p>A Função que mostra uma tabela bruta com valores lógicos identificando
+células vazias é</p>
+<blockquote>
+<p>is.na(Objeto))</p>
+</blockquote>
+<p>Essa função não é tao interessante para ser usada inicialmente na nossa
+curadoria de dados, pra isso, podemos utilizar uma função que irá nos
+responder logicamente (TRUE or FALSE) se o nosso conjunto de dados tem
+ou não valores ausentes, para isso podemos contar com a ajuda da função
+<em>any</em>()</p>
+<blockquote>
+<p>any(is.na(Objeto))</p>
+</blockquote>
+<p>A partir do resultado dessa função, podemos perguntar ao R quais linhas
+e colunas estão os valores ausentes:</p>
+<blockquote>
+<p>which(is.na(Objeto), arr.ind = TRUE)</p>
+</blockquote>
+<p>Se o nosso conjunto de dados possuir muitos valores ausentes, a lista
+dessa chamada de função será grande, logo, é mais intuitivo perguntar ao
+R quantos valores ausentes cada coluna que o meu conjunto de dados
+possui:</p>
+<blockquote>
+<p>colSums(is.na(Objeto))</p>
+</blockquote>
+</div>
+<div id="o-que-fazer-com-os-valores-ausentes-encontrados" class="section level2">
+<h2>O que fazer com os valores ausentes encontrados?</h2>
+<p>Existem três alternativas que podemos utilizar para nos livrar dessa
+incoveniência, sendo elas: excluir, substituir ou estimar dados em
+detrimento dos valores ausentes. Escolher entre cada uma dessas opções
+dependerá da quantidade de valores ausentes encontrados no meu conjunto
+de dados.</p>
+<div id="poucos-na---substituir-esses-valores-pela-média-mediana-ou-valor-fixo" class="section level3">
+<h3>Poucos NA - Substituir esses valores pela média, mediana ou valor fixo</h3>
+<div id="média" class="section level4">
+<h4>Média</h4>
+<pre class="r"><code>for (col in colnames(SeuDataFrame)) { if (is.numeric(SeuDataFrame[[col]])) { SeuDataFrame[[col]][is.na(SeuDataFrame[[col]])] &lt;- mean(SeuDataFrame[[col]], na.rm = TRUE) } }</code></pre>
+</div>
+<div id="valor-fixo-substituir-por-0" class="section level4">
+<h4>Valor Fixo, substituir por 0</h4>
+<pre class="r"><code>SeuDataFrame[is.na(SeuDataFrame)] &lt;- 0</code></pre>
+</div>
+</div>
+<div id="muitos-na-em-poucas-colunas---remover-as-colunas" class="section level3">
+<h3>Muitos NA em poucas colunas - Remover as colunas</h3>
+<pre class="r"><code>SeuDataFrame &lt;- SeuDataFrame[, colSums(is.na(SeuDataFrame)) == 0] # Remove todas as colunas com qualquer NA
+
+SeuDataFrame &lt;- SeuDataFrame[, colMeans(is.na(SeuDataFrame)) &lt; 0.5] # se quiser remover apenas colunas com mais de 50% de NA:</code></pre>
+</div>
+<div id="muitos-na-dispersos-em-várias-linhas---remover-as-linhas" class="section level3">
+<h3>Muitos NA dispersos em várias linhas - Remover as linhas</h3>
+<pre class="r"><code>SeuDataFrame &lt;- na.omit(SeuDataFrame) # Remove todas as linhas que tenham pelo menos um NA</code></pre>
+</div>
+<div id="para-dados-muito-importantes-podemos-substituir-o-na-pelo-valor-anterior-isso-para-séries-temporais-ou-podemos-utilizar-modelos-de-imputação-interpolação-ou-machine-learning" class="section level3">
+<h3>Para dados muito importantes podemos substituir o NA pelo valor anterior (<strong>isso para séries temporais</strong>) ou podemos utilizar Modelos de Imputação (<strong>interpolação ou machine learning</strong>)</h3>
+<div id="séries-temporais" class="section level4">
+<h4>Séries Temporais:</h4>
+<pre class="r"><code>library(zoo) 
+SeuDataFrame &lt;- na.locf(SeuDataFrame) # Preenche com o último valor não-NA</code></pre>
+</div>
+<div id="modelos-de-imputação" class="section level4">
+<h4>Modelos de Imputação:</h4>
+<p>Os <strong>modelos de imputação</strong> são técnicas utilizadas para substituir
+valores ausentes em um conjunto de dados por estimativas baseadas nas
+informações disponíveis. A imputação é uma etapa crucial em processos
+analíticos, especialmente quando a quantidade de dados ausentes é
+significativa. Ela visa melhorar a qualidade dos dados, preservando sua
+integridade e evitando que a perda de informações prejudique as
+conclusões das análises.</p>
+<p>Existem várias abordagens para imputação, que podem ser classificadas em
+<strong>simples</strong> ou <strong>complexas</strong>. A escolha do modelo de imputação depende
+do tipo de dados, da natureza dos valores ausentes e do impacto
+potencial na análise. Abaixo, estão algumas das principais abordagens:</p>
+<div id="imputação-por-médiamedianamoda-imputação-simples" class="section level5">
+<h5>1. <strong>Imputação por Média/Mediana/Moda (Imputação Simples)</strong></h5>
+<p>A imputação simples é uma das mais diretas e consiste em substituir os
+valores ausentes por uma estatística central dos dados observados.</p>
+<ul>
+<li><p><strong>Média</strong>: Substituir valores ausentes pela média dos valores
+observados em uma variável numérica.</p></li>
+<li><p><strong>Mediana</strong>: Usada especialmente quando os dados são assimétricos,
+substituindo valores ausentes pela mediana.</p></li>
+<li><p><strong>Moda</strong>: Para dados categóricos, os valores ausentes podem ser
+substituídos pela moda, ou seja, o valor mais frequente.</p></li>
+</ul>
+<p><strong>Limitações</strong>:</p>
+<ul>
+<li><p>Não leva em consideração as correlações entre variáveis.</p></li>
+<li><p>Pode reduzir a variabilidade dos dados e introduzir viés,
+especialmente em distribuições assimétricas.</p></li>
+</ul>
+</div>
+<div id="imputação-por-regressão" class="section level5">
+<h5>2. <strong>Imputação por Regressão</strong></h5>
+<p>Este modelo utiliza uma relação estatística entre a variável com dados
+ausentes e outras variáveis do conjunto de dados para prever os valores
+ausentes.</p>
+<ul>
+<li><p><strong>Imputação por Regressão Linear</strong>: Usa uma equação de regressão
+linear para prever os valores ausentes com base em outras variáveis
+numéricas.</p></li>
+<li><p><strong>Imputação por Regressão Logística</strong>: Utilizada para variáveis
+categóricas, onde a relação entre a variável ausente e as demais é
+modelada por regressão logística.</p></li>
+</ul>
+<p><strong>Limitações</strong>:</p>
+<ul>
+<li><p>Supõe que a relação entre as variáveis é linear (no caso de
+regressão linear).</p></li>
+<li><p>Pode ser inadequada se a relação entre as variáveis for complexa ou
+não-linear.</p></li>
+</ul>
+</div>
+<div id="imputação-por-k-vizinhos-mais-próximos-knn" class="section level5">
+<h5>3. <strong>Imputação por K-Vizinhos Mais Próximos (KNN)</strong></h5>
+<p>A imputação por KNN substitui os valores ausentes com base em uma média
+ponderada dos valores dos <strong>k vizinhos mais próximos</strong>. Este método leva
+em consideração a similaridade entre os casos para preencher os valores
+ausentes.</p>
+<ul>
+<li><strong>KNN Imputation</strong>: A variável ausente é estimada pela média (ou
+mediana) dos valores das observações mais próximas, com base em uma
+medida de distância (por exemplo, distância Euclidiana).</li>
+</ul>
+<p><strong>Limitações</strong>:</p>
+<ul>
+<li><p>Exige o cálculo de distâncias entre todas as observações.</p></li>
+<li><p>A escolha de “k” pode influenciar os resultados.</p></li>
+</ul>
+<p><strong>Exemplo no R:</strong></p>
+<pre class="r"><code># Carregue o pacote
+library(VIM)
+library(missForest)
+
+# Carregar o conjunto de dados iris - Não existem valores ausentes aqui
+data(iris)
+
+# Definir uma semente para reprodutibilidade
+set.seed(123)
+
+# Introduzir valores ausentes aleatórios
+iris_ausentes &lt;- prodNA(iris, noNA = 0.2) # Função para adicionar valores ausentes em posições aleatórias, o valor 0.2 produz muitos valores ausentes, tente reduzir esse valor para testar.
+
+# Imputação com KNN
+iris_imputados &lt;- kNN(iris_ausentes, k = 5)  # k=5 significa que vamos considerar os 5 vizinhos mais próximos</code></pre>
+<p><strong>Exibir os dados estimados e reais lado a lado<br />
+</strong></p>
+<pre class="r"><code># Criar uma máscara dos valores que foram imputados
+mascara_NA &lt;- is.na(iris_ausentes)
+
+# Extrair apenas os valores imputados e seus valores reais correspondentes
+valores_imputados &lt;- iris_imputados[mascara_NA]
+valores_reais &lt;- iris[mascara_NA]
+
+# Criar um data frame para visualizar as comparações
+comparacao &lt;- data.frame(
+  Valor_Real = valores_reais,
+  Valor_Imputado = valores_imputados
+)
+
+# Mostrar a tabela de comparação
+print(comparacao)</code></pre>
+<p>No próximo tópico será abordado testes para verificar o poder do teste e
+o tamanho de efeito, tente aplicar aqui também para verificar a
+confiabilidade da estimativa.</p>
+</div>
+<div id="imputação-por-modelos-baseados-em-árvores-ex-missforest" class="section level5">
+<h5>4. <strong>Imputação por Modelos Baseados em Árvores (ex: MissForest)</strong></h5>
+<p>O <strong>MissForest</strong> é um modelo de imputação baseado em <strong>árvores de
+decisão</strong>. Ele trata dados ausentes como variáveis a serem preditas e
+usa o algoritmo <strong>Random Forest</strong> para prever esses valores ausentes. A
+imputação é feita de forma iterativa, onde os valores imputados em cada
+iteração são utilizados para ajustar o modelo até que uma solução
+estável seja alcançada.</p>
+<p><strong>Vantagens</strong>:</p>
+<ul>
+<li><p>Não assume distribuições específicas para os dados (flexível).</p></li>
+<li><p>Lida bem com variáveis categóricas e numéricas simultaneamente.</p></li>
+</ul>
+<p><strong>Limitações</strong>:</p>
+<ul>
+<li><p>Requer mais poder computacional devido à complexidade dos algoritmos
+de árvores.</p></li>
+<li><p>Pode ser mais lento para grandes conjuntos de dados.</p></li>
+</ul>
+<pre class="r"><code>library(missForest) 
+SeuDataFrame &lt;- missForest(SeuDataFrame)$ximp #Salva um novo data.frame com dados estimados
+SeuDataFrame$OOBerror # estimativa do erro do resultado final
+SeuDataFrame$error #o erro verdadeiro</code></pre>
+<p>Essa técnica Substitui temporariamente os NA por uma estimativa inicial,
+geralmente a média (para variáveis numéricas) ou a moda (para
+categóricas).</p>
+<p><strong>Predição com Random Forest:</strong></p>
+<ul>
+<li><p>Para cada variável com NA, ela é tratada como variável dependente
+(y).</p></li>
+<li><p>As outras colunas sem NA são usadas como preditores (X).</p></li>
+<li><p>Um modelo de Random Forest é treinado para prever os valores
+ausentes.</p></li>
+<li><p>Os valores ausentes são substituídos pelas previsões do modelo.</p></li>
+</ul>
+<p><strong>NRMSE (Normalized Root Mean Square)</strong></p>
+<p>É o Erro quadrático médio normalizado, uma métrica usada para avaliar a
+qualidade da imputação de valores ausentes quando utilizamos métodos
+como missForest(). Ele mede o erro médio da imputação normalizado pelo
+intervalo ou desvio padrão dos valores verdadeiros.</p>
+<p><strong>Como interpretar o NRMSE?</strong></p>
+<ul>
+<li><p><strong>NRMSE próximo de 0</strong> → A imputação foi excelente (os valores
+imputados estão muito próximos dos valores reais).</p></li>
+<li><p><strong>NRMSE entre 0.1 e 0.5</strong> → A imputação é razoável, mas pode haver
+erros consideráveis.</p></li>
+<li><p><strong>NRMSE &gt; 0.5</strong> → A imputação tem alto erro e pode não ser
+confiável.</p></li>
+</ul>
+<p>Em geral, quanto menor o NRMSE, melhor a imputação!</p>
+<pre class="r"><code>library(missForest)
+
+data(iris) # Conjunto de dados que não possuem valores ausentes.
+
+set.seed(81) # Para padronização
+
+iris.ausentes &lt;- prodNA(iris, noNA = 0.2) 
+
+any(is.na(iris.ausentes))
+which(is.na(iris.ausentes), arr.ind = TRUE)
+colSums(is.na(iris.ausentes))
+
+iris.estimadosT &lt;- missForest(iris.ausentes, xtrue = iris, verbose = TRUE) # verbose mostra o que a função está fazendo</code></pre>
+<p><strong>Estimativa do Erro</strong></p>
+<pre class="r"><code>iris.estimadosT$OOBerror</code></pre>
+<p><strong>Estimativa verdadeira do Erro</strong></p>
+<pre class="r"><code>iris.estimadosT$error</code></pre>
+<p>Se as estimativas dos erros estiverem confortáveis <em>(O PFC mostra a
+porcentagem das variáveis que não foram corretamente estimadas)</em> salve
+os dados em outro objeto:</p>
+<pre class="r"><code>iris.estimados &lt;- iris.estimados$ximp</code></pre>
+<p><strong>Comparar os resultados estimados com os valores reais:</strong></p>
+<p>Podemos comparar diretamente (visualmente) as duas planilhas:</p>
+<pre class="r"><code># Criar uma máscara dos valores que foram imputados
+mascara_NA &lt;- is.na(iris.ausentes)
+
+# Extrair apenas os valores imputados e seus valores reais correspondentes
+valores_imputados &lt;- iris.estimados[mascara_NA]
+valores_reais &lt;- iris[mascara_NA]
+
+# Criar um data frame para visualizar as comparações
+comparacao &lt;- data.frame(
+  Valor_Real = valores_reais,
+  Valor_Imputado = valores_imputados
+)
+
+# Mostrar a tabela de comparação
+print(comparacao)</code></pre>
+<p><strong>Técnicas descritivas e inferenciais para verificar a confiabilidade
+dos valores imputados pelo Random Forest:</strong></p>
+<p>Primeiro precisamos remover as variáveis categóricas, nesse primeiro
+momento, iremos verificar a confiabilidade da privisão do modelo com
+dados numéricos.</p>
+<pre class="r"><code># Filtrar apenas os valores numéricos (caso tenha variáveis categóricas)
+valores_reais_num &lt;- as.numeric(valores_reais)  
+valores_imputados_num &lt;- as.numeric(valores_imputados)
+
+# Remover possíveis NAs que possam surgir ao converter os dados
+valores_reais_num &lt;- valores_reais_num[!is.na(valores_reais_num)]
+valores_imputados_num &lt;- valores_imputados_num[!is.na(valores_imputados_num)]
+
+# Calcular variância e desvio padrão para os valores reais
+var_real &lt;- var(valores_reais_num)
+sd_real &lt;- sd(valores_reais_num)
+
+# Calcular variância e desvio padrão para os valores imputados
+var_imputado &lt;- var(valores_imputados_num)
+sd_imputado &lt;- sd(valores_imputados_num)
+
+# Criar um data frame com os resultados
+resultado_variancia_desvio &lt;- data.frame(
+  Estatistica = c(&quot;Variância&quot;, &quot;Desvio Padrão&quot;),
+  Valores_Reais = c(var_real, sd_real),
+  Valores_Imputados = c(var_imputado, sd_imputado)
+)
+
+# Mostrar os resultados
+print(resultado_variancia_desvio)</code></pre>
+<p>Nessa etapa percebemos que os dois conjuntos de dados possuem variações
+próximas um do outro, mas para verificar se de fato essas variações são
+homogêneas ou não, precisaremos utilizar algumas análises para primeiro
+verificar a normalidade dos dados para só após aplicar um teste
+inferencial.</p>
+<p><strong>Verificar a normalidade dos dados:</strong></p>
+<pre class="r"><code>shapiro_real &lt;- shapiro.test(valores_reais_num)
+shapiro_imputado &lt;- shapiro.test(valores_imputados_num)
+
+# Criar data frame com os resultados
+resultado &lt;- data.frame(
+  Conjunto = c(&quot;Valores Reais&quot;, &quot;Valores Imputados&quot;),
+  W_Statistic = c(shapiro_real$statistic, shapiro_imputado$statistic),
+  p_Value = c(shapiro_real$p.value, shapiro_imputado$p.value)
+)
+return(resultado)
+}</code></pre>
+<p>A função shapiro retorna uma tabela com os valores do teste estatístico
+W e o p-valor associado ao teste. A hipótese nula do teste shapiro é que
+os dados seguem uma <strong>distribuição normal</strong>, logo, se o p-valor for
+maior que o alfa (nível de significância) <em>não rejeitamos a hipótese
+nula e os dados são normais</em>.</p>
+<p>Se o p-valor for menor que o alfa, nós rejeitamos a hipótese nula e os
+dados não são normais.</p>
+<p>O W (estatística do teste) mede o quanto os dados se aproximam de uma
+distribuição normal. Quanto mais próximo de 1, mais próximo os dados
+estão de uma distribuição normal. Valores altos de W pode indicar a
+presença de outliers, ou até mesmo assimetria e curtose nos dados.</p>
+<p><strong>Teste de Wilcoxon pareado para comparar os valores reais e imputados</strong></p>
+<p>Como os dados não seguem uma distribuição normal dos dados, iremos
+utilizar um teste não paramétrico para comparar as amostras antes e
+depois da estimativa.</p>
+<pre class="r"><code>wilcox_test &lt;- wilcox.test(valores_reais_num, valores_imputados_num, paired = TRUE)
+
+# Exibir o p-valor
+print(wilcox_test$p.value)</code></pre>
+<p>Se p &lt; 0.05 → Indica que existem diferenças significativas entre os
+grupos (rejeitamos a hipótese nula de que as distribuições são iguais).</p>
+<p>O p-valor encontrado foi <strong>0.059</strong> que está ligeiramente acima de 0.05,
+indicando que não há uma diferença estatisticamente significativa entre
+os valores imputados e os valores reais, mas está bem próximo do limiar.</p>
+<p><strong>Comparar as Variâncias - Teste de Levene</strong></p>
+<pre class="r"><code>library(car)
+leveneTest(c(valores_reais_num, valores_imputados_num), 
+           group = rep(c(&quot;Reais&quot;, &quot;Imputados&quot;), 
+                       c(length(valores_reais_num), length(valores_imputados_num))))</code></pre>
+<p>O p-valor indica que não existem diferenças significativas nas
+variâncias dos grupos comparados.</p>
+<p><strong>Tamanho de Efeito:</strong> É uma medida estatística que quantifica a
+<strong>magnitude</strong> de uma diferença ou relacionamento entre grupos ou
+variáveis, independentemente do tamanho da amostra. Em outras palavras,
+enquanto os testes de significância estatística (como o <strong>teste t</strong> ou
+<strong>ANOVA</strong>) nos dizem se um efeito é <strong>estatisticamente significativo</strong>,
+o <strong>tamanho de efeito</strong> nos ajuda a entender <strong>quão grande ou
+relevante</strong> esse efeito é em termos práticos ou reais.</p>
+<p><strong>Importância do Tamanho de Efeito</strong></p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Avaliação da Relevância Prática</strong>: Embora um teste estatístico
+possa indicar que uma diferença entre grupos é <strong>estatisticamente
+significativa</strong>, o tamanho de efeito nos informa se essa diferença é
+<strong>importante</strong> na prática. Isso é crucial porque uma diferença
+pequena, mas estatisticamente significativa, pode não ter relevância
+prática em contextos do mundo real. O tamanho de efeito ajuda a
+evitar essa falácia, fornecendo uma visão mais clara do impacto
+real.</p></li>
+<li><p><strong>Comparação entre Estudos</strong>: O tamanho de efeito permite comparar
+resultados de diferentes estudos, mesmo que eles tenham usado
+diferentes tamanhos de amostra. Isso é importante em metanálises,
+onde os dados de múltiplos estudos são combinados para tirar
+conclusões gerais. Quando você tem o tamanho de efeito, pode
+comparar a força de uma relação ou diferença em diferentes contextos
+e condições experimentais, independentemente da amostra.</p></li>
+<li><p><strong>Planejamento de Estudos</strong>: O tamanho de efeito é fundamental para
+o <strong>planejamento de pesquisas</strong> e <strong>cálculo do poder estatístico</strong>.
+Ao conhecer o tamanho do efeito esperado, os pesquisadores podem
+determinar o tamanho da amostra necessário para detectar um efeito
+com uma probabilidade adequada (poder estatístico). Isso é crucial
+para garantir que os estudos não sejam nem excessivamente pequenos
+(não detectando um efeito verdadeiro) nem excessivamente grandes
+(com um custo desnecessário).</p></li>
+<li><p><strong>Interpretação de Resultados</strong>: Em contextos acadêmicos e
+profissionais, o tamanho de efeito ajuda a <strong>interpretar</strong> a
+significância dos resultados de forma mais contextualizada. Um
+p-valor de 0.05, por exemplo, indica uma probabilidade de erro de
+5%, mas não fornece informações sobre a magnitude do efeito. Já o
+tamanho de efeito oferece uma medida mais direta de quão grande é o
+impacto observado.</p></li>
+<li><p><strong>Compreensão da Variabilidade</strong>: O tamanho de efeito também ajuda a
+compreender a <strong>variabilidade</strong> entre grupos ou dentro de um
+conjunto de dados. Em vez de focar apenas em se a diferença é
+significativa ou não, o tamanho de efeito oferece uma visão mais
+detalhada da <strong>intensidade</strong> ou <strong>força</strong> dessa diferença. Esse tipo
+de compreensão é útil em várias áreas, como psicologia, biologia e
+ciências sociais, onde os efeitos pequenos, mas consistentes, podem
+ser mais importantes do que grandes efeitos que ocorrem raramente.</p></li>
+</ol>
+<p><strong>Tipos de Tamanho de Efeito</strong></p>
+<p>Existem várias formas de calcular o tamanho de efeito, e a escolha
+depende do tipo de análise:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>d de Cohen</strong>: Mede a diferença entre duas médias em termos do
+desvio padrão. Um valor de 0.2 indica um efeito pequeno, 0.5 um
+efeito médio, e 0.8 um grande efeito.</p></li>
+<li><p><strong>r de Pearson</strong>: Mede a força e a direção de uma relação linear
+entre duas variáveis. Um valor de 0.1 a 0.3 indica um efeito
+pequeno, 0.3 a 0.5 um efeito médio e 0.5 ou mais um grande efeito.</p></li>
+<li><p><strong>η² (eta quadrado)</strong>: Usado em ANOVA para medir a proporção de
+variabilidade explicada pela variável independente.</p></li>
+<li><p><strong>Odds ratio e risco relativo</strong>: Usados em estudos de caso-controle
+ou estudos epidemiológicos para medir a força da associação entre
+uma variável independente e um evento.</p></li>
+</ol>
+<p><strong>Exemplo de Interpretação do Tamanho de Efeito</strong></p>
+<p>Imaginemos um estudo que investiga a eficácia de um novo medicamento
+comparado a um placebo. O teste estatístico pode indicar que a diferença
+entre os dois grupos é <strong>estatisticamente significativa</strong> (p-valor &lt;
+0.05), mas o tamanho de efeito pode ser pequeno, digamos, um <strong>d de
+Cohen = 0.2</strong>. Isso sugere que, embora o medicamento tenha mostrado um
+efeito significativo, a <strong>magnitude</strong> desse efeito é pequena, o que pode
+implicar que, na prática, o medicamento tem pouco impacto em relação ao
+placebo, apesar da diferença ser significativa.</p>
+<p>Por outro lado, se o tamanho de efeito for <strong>d = 0.8</strong>, o efeito seria
+considerado <strong>grande</strong>, o que indicaria que o medicamento tem um impacto
+substancial e relevante em comparação com o placebo.</p>
+<p>Já que utilizamos o teste de WIlcoxon, iremos utilizar o tamanho de
+efeito apropriado a esse teste (para conjunto de dados não normais).</p>
+<pre class="r"><code>library(rstatix)
+library(coin)
+dados &lt;- data.frame(
+  valores = c(valores_reais_num, valores_imputados_num),
+  grupo = rep(c(&quot;Reais&quot;, &quot;Imputados&quot;), 
+              c(length(valores_reais_num), length(valores_imputados_num)))
+)
+
+wilcox_effsize(dados, formula = valores ~ grupo)</code></pre>
+<p>O valor de efeito (0.0187) está muito próximo de zero e a classificação
+como “small” sugere que, embora exista uma diferença entre os grupos
+Imputados e Reais, essa diferença é muito pequena.</p>
+</div>
+<div id="imputação-múltipla-multiple-imputation---pacote-mice-no-r" class="section level5">
+<h5>5. <strong>Imputação Múltipla (Multiple Imputation - Pacote mice no R)</strong></h5>
+<p>A imputação múltipla é uma técnica mais avançada e robusta, na qual os
+valores ausentes são imputados várias vezes, criando diferentes
+conjuntos de dados “imputados”. Cada conjunto de dados é analisado
+separadamente e as estimativas finais são combinadas de forma a refletir
+a incerteza sobre os valores imputados.</p>
+<ul>
+<li><strong>MICE (Multivariate Imputation by Chained Equations)</strong>: Método
+popular de imputação múltipla, no qual um conjunto de equações é
+utilizado para imputar as variáveis ausentes uma de cada vez, de
+forma iterativa.</li>
+</ul>
+<p><strong>Vantagens</strong>:</p>
+<ul>
+<li><p>Considera a incerteza associada aos valores imputados.</p></li>
+<li><p>Produz estimativas mais precisas e conservadoras, especialmente em
+datasets complexos.</p></li>
+</ul>
+<p><strong>Limitações</strong>:</p>
+<ul>
+<li><p>Requer conhecimento avançado em estatísticas.</p></li>
+<li><p>Não é tão boa para dados categóricos.</p></li>
+<li><p>Mais caro computacionalmente, pois envolve múltiplas imputações e
+análises.</p></li>
+</ul>
+</div>
+<div id="imputação-com-redes-neurais-pacote-h2o-no-r" class="section level5">
+<h5>6. <strong>Imputação com Redes Neurais (Pacote h2o no R)</strong></h5>
+<p>As redes neurais podem ser usadas para imputar dados faltantes,
+especialmente em conjuntos de dados grandes e complexos. Redes neurais
+artificiais podem aprender padrões complexos entre as variáveis para
+prever valores ausentes.</p>
+<p><strong>Vantagens</strong>:</p>
+<ul>
+<li><p>Capacidade de modelar relações não-lineares complexas entre as
+variáveis.</p></li>
+<li><p>Pode ser eficaz em dados grandes e com muitos atributos.</p></li>
+</ul>
+<p><strong>Limitações</strong>:</p>
+<ul>
+<li><p>Requer uma quantidade considerável de dados para ser eficaz.</p></li>
+<li><p>Pode ser difícil de interpretar, tornando-a menos transparente que
+outros métodos.</p></li>
+</ul>
+</div>
+<div id="conclusão" class="section level5">
+<h5><strong>Conclusão</strong></h5>
+<p>A escolha do modelo de imputação depende do <strong>tipo de dados</strong>, da
+<strong>quantidade de dados ausentes</strong>, do <strong>objetivo da análise</strong> e da
+<strong>complexidade computacional</strong> que você está disposto a enfrentar.
+Embora as técnicas simples como a imputação por média ou mediana possam
+ser rápidas e fáceis de implementar, abordagens mais sofisticadas, como
+<strong>imputação múltipla</strong> ou <strong>MissForest</strong>, são mais robustas e geralmente
+fornecem resultados mais precisos e confiáveis, especialmente em
+conjuntos de dados mais complexos.</p>
+<p>Cada técnica tem suas vantagens e desvantagens, e é importante analisar
+os dados de forma cuidadosa antes de escolher a abordagem mais
+apropriada para o tratamento de dados ausentes.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
