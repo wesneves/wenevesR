@@ -3,7 +3,9 @@ title: "Tratamento de Dados Ausentes"
 date: "2025-02-20"
 categories: ["R"]
 tags: ["Curadoria de Dados", "NA Value", "Machine Learning", "Random Forest"]
-output: html_document
+output: 
+  html_document:
+    highlight: tango
 ---
 
 ```{r setup, include=FALSE}
