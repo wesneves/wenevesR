@@ -1,0 +1,282 @@
+---
+title: "Do Dado ao Artigo: Análise Quantitativa no R (Modelagem, Multivariada e Produção Científica)"
+author: "Wesley de Oliveira Neves"
+date: "2026-02-24"
+categories: ["CursoR"]
+tags: ["R", "GitHub", "RStudio", "Rmarkdown"]
+output: 
+  html_document:
+    highlight: tango
+---
+
+<style>
+/* ===============================
+   🎨 ESTILOS GERAIS DO DOCUMENTO
+================================= */
+
+h1.title {
+  color: #2c3e50;
+  font-weight: 800;
+  text-align: center;
+}
+
+h3.subtitle {
+  color: #7f8c8d;
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+h4.author,
+h4.date {
+  text-align: center;
+  color: #95a5a6;
+}
+
+/* ===============================
+   📦 CABEÇALHO DOS MÓDULOS
+================================= */
+
+.mod-header {
+  padding: 15px 20px;
+  color: white;
+  border-radius: 8px;
+  margin-top: 45px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mod-header h2 {
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+
+.mod-header p {
+  margin: 0;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+/* 🎨 Gradientes dos módulos */
+
+.m1 { background: linear-gradient(135deg, #2980b9, #2c3e50); }
+.m2 { background: linear-gradient(135deg, #27ae60, #1e8449); }
+.m3 { background: linear-gradient(135deg, #8e44ad, #732d91); }
+.m4 { background: linear-gradient(135deg, #d35400, #a04000); }
+
+/* ===============================
+   📅 CAIXAS DOS DIAS
+================================= */
+
+.dia-box {
+  background-color: #f8f9fa;
+  border-left: 6px solid #bdc3c7;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dia-box h3 {
+  margin-top: 0;
+  color: #34495e;
+  font-size: 1.4em;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 5px;
+}
+
+.dia-box ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.dia-box li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* ===============================
+   👋 CAIXA DE BOAS-VINDAS
+================================= */
+
+.welcome-box {
+  background-color: #e8f8f5;
+  border: 1px solid #a3e4d7;
+  color: #117a65;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.15em;
+  margin-bottom: 30px;
+}
+</style>
+
+
+<!-- ===============================
+     👋 BOAS-VINDAS
+================================= -->
+
+<div class="welcome-box">
+  <strong>👋 Bem-vindo ao Curso!</strong>
+  <br><br>
+  Este treinamento foi desenhado para transformar a maneira como você lida com dados científicos.
+  Faremos a transição desde os fundamentos da linguagem R até a produção de relatórios dinâmicos.
+  O objetivo é simples: garantir que a sua ciência seja
+  <strong>robusta</strong>, <strong>reprodutível</strong> e <strong>visualmente impecável</strong>.
+</div>
+
+
+<!-- ===============================
+     💻 MÓDULO 1
+================================= -->
+
+<div class="mod-header m1">
+  <h2>💻 Módulo 1: Fundamentos e Tidyverse</h2>
+  <p>12 horas / 3 Dias | Manipulação moderna de dados</p>
+</div>
+
+<div class="dia-box" style="border-left-color: #3498db;">
+  <h3>Dia 1: Introdução e Sintaxe Básica</h3>
+  <ul>
+    <li><strong>O Ecossistema:</strong> Instalação do R, RStudio e RTools.</li>
+    <li><strong>Estruturas de Dados:</strong> Objetos, vetores, matrizes, data frames e listas.</li>
+    <li><strong>Acesso aos Dados:</strong> Indexação e lógica booleana.</li>
+  </ul>
+</div>
+
+<div class="dia-box" style="border-left-color: #3498db;">
+  <h3>Dia 2: Manipulação de Dados (dplyr)</h3>
+  <ul>
+    <li><strong>Pipe:</strong> <code>%&gt;%</code> ou <code>|&gt;</code>.</li>
+    <li><strong>Verbos:</strong> <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>group_by()</code>, <code>summarise()</code>.</li>
+    <li><strong>Limpeza:</strong> Tratamento de valores ausentes (NA).</li>
+  </ul>
+</div>
+
+<div class="dia-box" style="border-left-color: #3498db;">
+  <h3>Dia 3: Visualização de Dados (ggplot2)</h3>
+  <ul>
+    <li><strong>Gramática:</strong> Estrutura em camadas.</li>
+    <li><strong>Geometrias:</strong> Pontos, barras, linhas e boxplots.</li>
+    <li><strong>Design:</strong> Temas e paletas para publicação.</li>
+  </ul>
+</div>
+
+<!-- ===============================
+     🌿 MÓDULO 2
+================================= -->
+
+<div class="mod-header m2">
+  <h2>🌿 Módulo 2: Ecologia Numérica e Estatística</h2>
+  <p>12 horas / 3 Dias | A teoria estatística encontra o código</p>
+</div>
+
+<div class="dia-box" style="border-left-color: #2ecc71;">
+  <h3>Dia 4: Estatística Básica e Modelagem</h3>
+  <ul>
+    <li><strong>Testes Clássicos:</strong> Teste t, ANOVA e Qui-quadrado.</li>
+    <li><strong>Modelos Lineares:</strong> Regressão Linear Simples e Múltipla.</li>
+    <li><strong>Além do Básico:</strong> Introdução aos Modelos Lineares Generalizados (GLM).</li>
+  </ul>
+</div>
+
+<div class="dia-box" style="border-left-color: #2ecc71;">
+  <h3>Dia 5: Ecologia de Comunidades - Parte 1</h3>
+  <ul>
+    <li><strong>Pacote vegan:</strong> Introdução à principal ferramenta de ecologia no R.</li>
+    <li><strong>Estruturação:</strong> Matrizes de abundância biológica vs. variáveis ambientais.</li>
+    <li><strong>Índices:</strong> Diversidade (Shannon, Simpson) e Riqueza.</li>
+  </ul>
+</div>
+
+<div class="dia-box" style="border-left-color: #2ecc71;">
+  <h3>Dia 6: Ecologia de Comunidades - Parte 2</h3>
+  <ul>
+    <li><strong>Pré-processamento:</strong> Transformações (Hellinger, log).</li>
+    <li><strong>Distâncias:</strong> Bray-Curtis e Jaccard.</li>
+    <li><strong>Ordenação:</strong> PCA e nMDS.</li>
+    <li><strong>Testes Multivariados:</strong> PERMANOVA (<code>adonis2</code>).</li>
+  </ul>
+</div>
+
+
+<!-- ===============================
+     ⚙️ MÓDULO 3
+================================= -->
+
+<div class="mod-header m3">
+  <h2>⚙️ Módulo 3: Desenvolvimento e Reprodutibilidade</h2>
+  <p>8 horas / 2 Dias | De usuário para desenvolvedor</p>
+</div>
+
+<div class="dia-box" style="border-left-color: #9b59b6;">
+  <h3>Dia 7: Programação Funcional e Fluxo</h3>
+  <ul>
+    <li><strong>Automatização:</strong> Loops (<code>for</code>) vs. família <code>apply</code> e <code>purrr</code>.</li>
+    <li><strong>Engenharia de Funções:</strong> Criando funções com <code>function()</code>.</li>
+    <li><strong>Clean Code:</strong> Boas práticas para scripts legíveis.</li>
+  </ul>
+</div>
+
+<div class="dia-box" style="border-left-color: #9b59b6;">
+  <h3>Dia 8: Criação de Pacotes</h3>
+  <ul>
+    <li><strong>Anatomia:</strong> Estrutura padrão de diretórios no R.</li>
+    <li><strong>Ecossistema Dev:</strong> <code>devtools</code>, <code>usethis</code> e <code>roxygen2</code>.</li>
+    <li><strong>Mão na Massa:</strong> Construção de um pacote funcional de exemplo.</li>
+  </ul>
+</div>
+
+
+<!-- ===============================
+     📄 MÓDULO 4
+================================= -->
+
+<div class="mod-header m4">
+  <h2>📄 Módulo 4: Produção Textual e Relatórios</h2>
+  <p>8 horas / 2 Dias | A apresentação final da ciência</p>
+</div>
+
+<div class="dia-box" style="border-left-color: #e67e22;">
+  <h3>Dia 9: RMarkdown e LaTeX</h3>
+  <ul>
+    <li><strong>Sintaxe Markdown:</strong> Títulos, listas e links.</li>
+    <li><strong>Controle de Execução:</strong> Chunks (<code>echo</code>, <code>eval</code>, <code>message</code>).</li>
+    <li><strong>LaTeX:</strong> Inserção de equações matemáticas.</li>
+  </ul>
+</div>
+
+<div class="dia-box" style="border-left-color: #e67e22;">
+  <h3>Dia 10: Customização Avançada e Projeto Final</h3>
+  <ul>
+    <li><strong>Exportação Web:</strong> Compilação para HTML.</li>
+    <li><strong>CSS:</strong> Fontes, cores e identidade visual.</li>
+    <li><strong>Projeto Final:</strong> Relatório HTML integrando análises ecológicas.</li>
+  </ul>
+</div>
+
+<!-- ===============================
+     📌 SOBRE O CURSO
+================================= -->
+
+<div class="mod-header m1">
+  <h2>📌 Sobre o Curso</h2>
+  <p>Informações importantes</p>
+</div>
+
+<div class="dia-box" style="border-left-color: #2980b9;">
+  <h3>Início e Acesso</h3>
+  <ul>
+    <li><strong>Início:</strong> Dia 28 deste mês, às <strong>08:00 da manhã</strong>.</li>
+    <li><strong>Formato:</strong> Aulas online, aos finais de semana (sábado manhã e tarde, domingo pela manhã).</li>
+    <li><strong>Carga Horária:</strong> 40 horas totais.</li>
+    <li><strong>Certificação:</strong> Emissão de certificado ao final do curso.</li>
+    <li>
+      <strong>Acesso pela plataforma Sympla:</strong><br>
+      <a href="https://www.sympla.com.br/evento-online/do-dado-ao-artigo-analise-quantitativa-no-r-modelagem-multivariada-e-producao-cientifica/3315580" target="_blank">
+        Clique aqui para acessar o curso
+      </a>
+    </li>
+  </ul>
+</div>
