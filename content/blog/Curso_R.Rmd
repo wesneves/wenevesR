@@ -137,7 +137,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #3498db;">
-  <h3>Dia 1: Introdução e Sintaxe Básica</h3>
+  <h3>Aula 1: Introdução e Sintaxe Básica</h3>
   <ul>
     <li><strong>O Ecossistema:</strong> Instalação do R, RStudio e RTools.</li>
     <li><strong>Estruturas de Dados:</strong> Objetos, vetores, matrizes, data frames e listas.</li>
@@ -146,7 +146,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #3498db;">
-  <h3>Dia 2: Manipulação de Dados (dplyr)</h3>
+  <h3>Aula 2: Manipulação de Dados (dplyr)</h3>
   <ul>
     <li><strong>Pipe:</strong> <code>%&gt;%</code> ou <code>|&gt;</code>.</li>
     <li><strong>Verbos:</strong> <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>group_by()</code>, <code>summarise()</code>.</li>
@@ -155,7 +155,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #3498db;">
-  <h3>Dia 3: Visualização de Dados (ggplot2)</h3>
+  <h3>Aula 3: Visualização de Dados (ggplot2)</h3>
   <ul>
     <li><strong>Gramática:</strong> Estrutura em camadas.</li>
     <li><strong>Geometrias:</strong> Pontos, barras, linhas e boxplots.</li>
@@ -173,7 +173,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #2ecc71;">
-  <h3>Dia 4: Estatística Básica e Modelagem</h3>
+  <h3>Aula 4: Estatística Básica e Modelagem</h3>
   <ul>
     <li><strong>Testes Clássicos:</strong> Teste t, ANOVA e Qui-quadrado.</li>
     <li><strong>Modelos Lineares:</strong> Regressão Linear Simples e Múltipla.</li>
@@ -182,7 +182,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #2ecc71;">
-  <h3>Dia 5: Ecologia de Comunidades - Parte 1</h3>
+  <h3>Aula 5: Ecologia de Comunidades - Parte 1</h3>
   <ul>
     <li><strong>Pacote vegan:</strong> Introdução à principal ferramenta de ecologia no R.</li>
     <li><strong>Estruturação:</strong> Matrizes de abundância biológica vs. variáveis ambientais.</li>
@@ -191,7 +191,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #2ecc71;">
-  <h3>Dia 6: Ecologia de Comunidades - Parte 2</h3>
+  <h3>Aula 6: Ecologia de Comunidades - Parte 2</h3>
   <ul>
     <li><strong>Pré-processamento:</strong> Transformações (Hellinger, log).</li>
     <li><strong>Distâncias:</strong> Bray-Curtis e Jaccard.</li>
@@ -211,7 +211,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #9b59b6;">
-  <h3>Dia 7: Programação Funcional e Fluxo</h3>
+  <h3>Aula 7: Programação Funcional e Fluxo</h3>
   <ul>
     <li><strong>Automatização:</strong> Loops (<code>for</code>) vs. família <code>apply</code> e <code>purrr</code>.</li>
     <li><strong>Engenharia de Funções:</strong> Criando funções com <code>function()</code>.</li>
@@ -220,7 +220,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #9b59b6;">
-  <h3>Dia 8: Criação de Pacotes</h3>
+  <h3>Aula 8: Criação de Pacotes</h3>
   <ul>
     <li><strong>Anatomia:</strong> Estrutura padrão de diretórios no R.</li>
     <li><strong>Ecossistema Dev:</strong> <code>devtools</code>, <code>usethis</code> e <code>roxygen2</code>.</li>
@@ -239,7 +239,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #e67e22;">
-  <h3>Dia 9: RMarkdown e LaTeX</h3>
+  <h3>Aula 9: RMarkdown e LaTeX</h3>
   <ul>
     <li><strong>Sintaxe Markdown:</strong> Títulos, listas e links.</li>
     <li><strong>Controle de Execução:</strong> Chunks (<code>echo</code>, <code>eval</code>, <code>message</code>).</li>
@@ -248,7 +248,7 @@ h4.date {
 </div>
 
 <div class="dia-box" style="border-left-color: #e67e22;">
-  <h3>Dia 10: Customização Avançada e Projeto Final</h3>
+  <h3>Aula 10: Customização Avançada e Projeto Final</h3>
   <ul>
     <li><strong>Exportação Web:</strong> Compilação para HTML.</li>
     <li><strong>CSS:</strong> Fontes, cores e identidade visual.</li>
